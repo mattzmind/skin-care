@@ -1,806 +1,1111 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spell Check — Police Exam Prep</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Minha Rotina Skin Care</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    min-height: 100vh;
-    background: linear-gradient(180deg, #fdfcfb 0%, #f5f3f0 100%);
-    font-family: 'Outfit', sans-serif;
-    color: #1a1a1a;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 24px 16px;
-  }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(14px) } to { opacity:1; transform:translateY(0) } }
-  @keyframes scaleIn { from { opacity:0; transform:scale(.94) } to { opacity:1; transform:scale(1) } }
-  @keyframes slideOpt { from { opacity:0; transform:translateY(10px) } to { opacity:1; transform:translateY(0) } }
-  @keyframes glow { 0%,100% { box-shadow:0 0 0 0 rgba(34,197,94,0) } 50% { box-shadow:0 0 0 6px rgba(34,197,94,.12) } }
-  @keyframes shake { 0%,100% { transform:translateX(0) } 20%,60% { transform:translateX(-4px) } 40%,80% { transform:translateX(4px) } }
-  .container { max-width: 540px; width: 100%; }
-  .ob { transition: all .18s ease; cursor: pointer; -webkit-tap-highlight-color: transparent; border: none; width: 100%; text-align: left; }
-  .ob:not(.locked):hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.06) !important; }
-  .ob:not(.locked):active { transform: scale(.98); }
-  .hidden { display: none; }
-  .btn-primary {
-    font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 17px;
-    background: #1a1a1a; color: #fff; border: none; border-radius: 14px;
-    padding: 16px 48px; cursor: pointer; width: 100%;
-  }
-  .btn-primary:hover { background: #333; }
-  .mono { font-family: 'JetBrains Mono', monospace; }
-  .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: #bbb; text-transform: uppercase; letter-spacing: 1.8px; display: block; margin-bottom: 14px; }
-  .label-sm { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #bbb; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 6px; }
-  .card { background: #fff; border-radius: 20px; padding: 26px 24px; margin-bottom: 14px; border: 1px solid #eee; }
-  .card-sm { background: #fff; border-radius: 14px; padding: 16px 20px; border: 1px solid #eee; margin-bottom: 10px; }
-  .blank-line { display: inline-block; width: 100px; border-bottom: 2px solid #ccc; margin: 0 3px; vertical-align: bottom; }
+:root {
+--cream: #FAF6F1;
+--blush: #E8C5B0;
+--rose: #C4806A;
+--deep: #3D2B1F;
+--muted: #8A6F5E;
+--sage: #A8B5A2;
+--morning: #FFF3E8;
+--night: #1E1420;
+--night-card: #2C1F35;
+--night-accent: #9B7FBA;
+--gold: #D4A96A;
+}
+
+- { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+font-family: ‘DM Sans’, sans-serif;
+background: var(–cream);
+color: var(–deep);
+min-height: 100vh;
+overflow-x: hidden;
+}
+
+/* HEADER */
+.header {
+background: linear-gradient(135deg, var(–deep) 0%, #6B3D2E 100%);
+padding: 36px 20px 28px;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+.header::before {
+content: ‘’;
+position: absolute;
+top: -40px; right: -40px;
+width: 180px; height: 180px;
+border-radius: 50%;
+background: rgba(196,128,106,0.2);
+}
+.header::after {
+content: ‘’;
+position: absolute;
+bottom: -30px; left: -20px;
+width: 120px; height: 120px;
+border-radius: 50%;
+background: rgba(168,181,162,0.15);
+}
+.header h1 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2.4rem;
+font-weight: 300;
+color: var(–cream);
+letter-spacing: 0.05em;
+position: relative; z-index: 1;
+}
+.header h1 span { font-style: italic; color: var(–blush); }
+.header p {
+font-size: 0.9rem;
+color: rgba(250,246,241,0.6);
+margin-top: 6px;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+position: relative; z-index: 1;
+}
+
+/* TABS */
+.tabs {
+display: flex;
+background: var(–deep);
+padding: 0 20px 16px;
+gap: 10px;
+}
+.tab {
+flex: 1;
+padding: 10px;
+border: none;
+border-radius: 50px;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.95rem;
+font-weight: 500;
+cursor: pointer;
+transition: all 0.3s;
+letter-spacing: 0.05em;
+}
+.tab.morning { background: rgba(250,246,241,0.1); color: var(–blush); }
+.tab.morning.active { background: var(–gold); color: var(–deep); }
+.tab.night { background: rgba(250,246,241,0.1); color: var(–night-accent); }
+.tab.night.active { background: var(–night-accent); color: white; }
+.tab.products { background: rgba(250,246,241,0.1); color: var(–sage); }
+.tab.products.active { background: var(–sage); color: var(–deep); }
+
+/* CONTENT */
+.content { padding: 20px; display: none; }
+.content.active { display: block; }
+
+/* DAY SELECTOR (Night) */
+.day-selector {
+display: flex;
+gap: 8px;
+margin-bottom: 20px;
+overflow-x: auto;
+padding-bottom: 4px;
+scrollbar-width: none;
+}
+.day-selector::-webkit-scrollbar { display: none; }
+.day-btn {
+flex-shrink: 0;
+padding: 8px 16px;
+border: 1.5px solid var(–night-accent);
+border-radius: 50px;
+background: transparent;
+color: var(–night-accent);
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.9rem;
+cursor: pointer;
+transition: all 0.25s;
+white-space: nowrap;
+}
+.day-btn.active { background: var(–night-accent); color: white; }
+
+/* SECTION LABEL */
+.section-label {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 14px;
+}
+.section-label .line { flex: 1; height: 1px; background: var(–blush); opacity: 0.4; }
+.section-label span {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.2rem;
+font-style: italic;
+color: var(–muted);
+white-space: nowrap;
+}
+
+/* ROUTINE CARD */
+.routine-card {
+background: white;
+border-radius: 16px;
+overflow: hidden;
+box-shadow: 0 2px 20px rgba(61,43,31,0.06);
+margin-bottom: 12px;
+}
+.night-bg .routine-card { background: var(–night-card); }
+
+.step-item {
+display: flex;
+align-items: flex-start;
+padding: 14px 16px;
+border-bottom: 1px solid rgba(61,43,31,0.06);
+gap: 14px;
+transition: background 0.2s;
+position: relative;
+}
+.night-bg .step-item { border-bottom-color: rgba(255,255,255,0.06); }
+.step-item:last-child { border-bottom: none; }
+.step-item.done { opacity: 0.45; }
+.step-item.done .step-name { text-decoration: line-through; }
+
+.step-num {
+width: 34px; height: 34px;
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+font-size: 0.85rem;
+font-weight: 500;
+flex-shrink: 0;
+margin-top: 1px;
+}
+.morning-num { background: var(–morning); color: var(–rose); }
+.night-num { background: rgba(155,127,186,0.2); color: var(–night-accent); }
+
+.step-info { flex: 1; min-width: 0; }
+.step-name {
+font-size: 1.05rem;
+font-weight: 500;
+color: var(–deep);
+line-height: 1.3;
+}
+.night-bg .step-name { color: #EDE8F5; }
+.step-purpose {
+font-size: 0.88rem;
+color: var(–muted);
+margin-top: 2px;
+}
+.night-bg .step-purpose { color: rgba(237,232,245,0.5); }
+.step-wait {
+font-size: 0.83rem;
+color: var(–rose);
+margin-top: 3px;
+font-style: italic;
+}
+.night-bg .step-wait { color: var(–night-accent); }
+
+.step-check {
+width: 30px; height: 30px;
+border-radius: 50%;
+border: 2px solid var(–blush);
+background: transparent;
+cursor: pointer;
+flex-shrink: 0;
+display: flex; align-items: center; justify-content: center;
+transition: all 0.2s;
+margin-top: 2px;
+}
+.night-bg .step-check { border-color: var(–night-accent); }
+.step-check.checked { background: var(–rose); border-color: var(–rose); }
+.night-bg .step-check.checked { background: var(–night-accent); border-color: var(–night-accent); }
+.step-check svg { display: none; }
+.step-check.checked svg { display: block; }
+
+/* ALERT BOX */
+.alert-box {
+background: linear-gradient(135deg, #FFF0EB, #FDE8E0);
+border-left: 3px solid var(–rose);
+border-radius: 12px;
+padding: 14px 16px;
+margin-bottom: 16px;
+font-size: 0.92rem;
+color: var(–deep);
+line-height: 1.6;
+}
+.alert-box strong { color: var(–rose); display: block; margin-bottom: 4px; font-size: 0.95rem; }
+.night-bg .alert-box { background: rgba(155,127,186,0.1); border-left-color: var(–night-accent); }
+.night-bg .alert-box strong { color: var(–night-accent); }
+.night-bg .alert-box { color: #EDE8F5; }
+
+/* PROGRESS BAR */
+.progress-wrap { margin-bottom: 20px; }
+.progress-label {
+display: flex;
+justify-content: space-between;
+font-size: 0.88rem;
+color: var(–muted);
+margin-bottom: 6px;
+}
+.night-bg .progress-label { color: rgba(237,232,245,0.5); }
+.progress-bar {
+height: 4px;
+background: rgba(61,43,31,0.1);
+border-radius: 2px;
+overflow: hidden;
+}
+.night-bg .progress-bar { background: rgba(255,255,255,0.1); }
+.progress-fill {
+height: 100%;
+border-radius: 2px;
+transition: width 0.4s ease;
+}
+.morning-fill { background: linear-gradient(90deg, var(–gold), var(–rose)); }
+.night-fill { background: linear-gradient(90deg, var(–night-accent), #C4A0E8); }
+
+.reset-btn {
+width: 100%;
+padding: 12px;
+border: 1.5px solid var(–blush);
+border-radius: 12px;
+background: transparent;
+color: var(–muted);
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.95rem;
+cursor: pointer;
+margin-top: 8px;
+transition: all 0.2s;
+}
+.reset-btn:active { background: var(–blush); color: var(–deep); }
+.night-bg .reset-btn { border-color: rgba(155,127,186,0.3); color: rgba(237,232,245,0.4); }
+
+/* NIGHT BACKGROUND */
+.night-bg {
+background: var(–night);
+min-height: calc(100vh - 120px);
+margin: -20px;
+padding: 20px;
+}
+
+/* PRODUCTS TAB */
+.product-item {
+background: white;
+border-radius: 14px;
+padding: 14px 16px;
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+gap: 14px;
+box-shadow: 0 2px 12px rgba(61,43,31,0.05);
+}
+.product-emoji { font-size: 1.4rem; flex-shrink: 0; }
+.product-info { flex: 1; min-width: 0; }
+.product-name {
+font-size: 1rem;
+font-weight: 500;
+color: var(–deep);
+line-height: 1.3;
+}
+.product-use {
+font-size: 0.85rem;
+color: var(–muted);
+margin-top: 2px;
+}
+.product-tags {
+display: flex;
+gap: 4px;
+flex-wrap: wrap;
+margin-top: 5px;
+}
+.tag {
+font-size: 0.75rem;
+padding: 2px 8px;
+border-radius: 50px;
+font-weight: 500;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+}
+.tag-morning { background: #FFF3E8; color: var(–rose); }
+.tag-night { background: rgba(155,127,186,0.15); color: var(–night-accent); }
+.tag-both { background: #EEF3ED; color: #5A7A54; }
+
+.product-actions { display: flex; gap: 6px; flex-shrink: 0; }
+.action-btn {
+width: 32px; height: 32px;
+border-radius: 50%;
+border: none;
+display: flex; align-items: center; justify-content: center;
+cursor: pointer;
+font-size: 0.9rem;
+transition: all 0.2s;
+}
+.btn-delete { background: #FEF0EE; }
+.btn-delete:active { background: #FDDBD6; }
+.btn-empty { background: #FFF8F0; }
+.btn-empty:active { background: #FEECD6; }
+
+.product-item.empty-product {
+opacity: 0.5;
+border: 1.5px dashed var(–blush);
+background: transparent;
+box-shadow: none;
+}
+
+/* ADD PRODUCT */
+.add-section {
+background: white;
+border-radius: 16px;
+padding: 16px;
+margin-top: 16px;
+box-shadow: 0 2px 12px rgba(61,43,31,0.05);
+}
+.add-section h3 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.25rem;
+color: var(–deep);
+margin-bottom: 12px;
+font-weight: 400;
+}
+.input-field {
+width: 100%;
+padding: 10px 14px;
+border: 1.5px solid var(–blush);
+border-radius: 10px;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 1rem;
+color: var(–deep);
+background: var(–cream);
+margin-bottom: 8px;
+outline: none;
+transition: border-color 0.2s;
+}
+.input-field:focus { border-color: var(–rose); }
+.select-row { display: flex; gap: 8px; }
+.select-field {
+flex: 1;
+padding: 10px 14px;
+border: 1.5px solid var(–blush);
+border-radius: 10px;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.95rem;
+color: var(–deep);
+background: var(–cream);
+outline: none;
+appearance: none;
+}
+.add-btn {
+width: 100%;
+padding: 12px;
+background: linear-gradient(135deg, var(–deep), #6B3D2E);
+color: var(–cream);
+border: none;
+border-radius: 12px;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 1rem;
+font-weight: 500;
+cursor: pointer;
+margin-top: 4px;
+letter-spacing: 0.05em;
+transition: opacity 0.2s;
+}
+.add-btn:active { opacity: 0.85; }
+
+/* CALENDAR */
+.calendar-card {
+background: white;
+border-radius: 16px;
+overflow: hidden;
+box-shadow: 0 2px 20px rgba(61,43,31,0.06);
+margin-bottom: 20px;
+}
+.cal-row {
+display: grid;
+grid-template-columns: 80px 1fr 1fr;
+border-bottom: 1px solid rgba(61,43,31,0.06);
+min-height: 44px;
+}
+.cal-row:last-child { border-bottom: none; }
+.cal-day {
+padding: 12px;
+font-size: 0.88rem;
+font-weight: 500;
+color: var(–muted);
+display: flex; align-items: center;
+border-right: 1px solid rgba(61,43,31,0.06);
+text-transform: uppercase;
+letter-spacing: 0.08em;
+}
+.cal-cell {
+padding: 10px 12px;
+display: flex; align-items: center;
+font-size: 0.85rem;
+line-height: 1.4;
+color: var(–deep);
+border-right: 1px solid rgba(61,43,31,0.06);
+}
+.cal-cell:last-child { border-right: none; }
+.cal-badge {
+font-size: 0.78rem;
+padding: 3px 8px;
+border-radius: 50px;
+font-weight: 500;
+display: inline-block;
+}
+.badge-a { background: rgba(155,127,186,0.15); color: var(–night-accent); }
+.badge-b { background: rgba(212,169,106,0.15); color: #A07830; }
+.badge-c { background: #EEF3ED; color: #5A7A54; }
+.badge-sun { background: #FFF3E8; color: var(–rose); }
+.cal-header {
+background: var(–deep);
+display: grid;
+grid-template-columns: 80px 1fr 1fr;
+}
+.cal-header-cell {
+padding: 10px 12px;
+font-size: 0.8rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: rgba(250,246,241,0.6);
+font-weight: 500;
+}
+
+.empty-state {
+text-align: center;
+padding: 30px 20px;
+color: var(–muted);
+font-size: 0.85rem;
+font-style: italic;
+}
+
+/* TOAST */
+.toast {
+position: fixed;
+bottom: 30px;
+left: 50%;
+transform: translateX(-50%) translateY(20px);
+background: var(–deep);
+color: var(–cream);
+padding: 10px 20px;
+border-radius: 50px;
+font-size: 0.8rem;
+opacity: 0;
+transition: all 0.3s;
+z-index: 999;
+white-space: nowrap;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+.floating-tip {
+background: linear-gradient(135deg, var(–rose), #A05540);
+color: white;
+border-radius: 14px;
+padding: 14px 16px;
+font-size: 0.78rem;
+line-height: 1.6;
+margin-bottom: 16px;
+}
+.floating-tip strong { display: block; margin-bottom: 4px; font-size: 0.82rem; letter-spacing: 0.04em; }
 </style>
+
 </head>
 <body>
 
-<div class="container" id="app"></div>
+<div class="header">
+<h1>Minha Rotina <span>Skin Care</span></h1>
+<p>Personalizada para você ✨</p>
+</div>
+
+<div class="tabs">
+<button class="tab morning active" onclick="switchTab('morning')">☀️ Manhã</button>
+<button class="tab night" onclick="switchTab('night')">🌙 Noite</button>
+<button class="tab products" onclick="switchTab('products')">🧴 Produtos</button>
+</div>
+
+<!-- MORNING TAB -->
+
+<div class="content active" id="tab-morning">
+<div class="progress-wrap">
+<div class="progress-label">
+<span>Progresso de hoje</span>
+<span id="morning-count">0 / 7</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill morning-fill" id="morning-bar" style="width:0%"></div>
+</div>
+</div>
+
+<div class="floating-tip">
+<strong>☀️ Rotina Diurna — Todos os dias</strong>
+Vitamina C + SPF é o combo anti-mancha mais poderoso. Nunca pule o protetor!
+</div>
+
+<div class="routine-card" id="morning-list"></div>
+<button class="reset-btn" onclick="resetRoutine('morning')">↺ Recomeçar rotina</button>
+</div>
+
+<!-- NIGHT TAB -->
+
+<div class="content" id="tab-night">
+<div class="night-bg">
+<div class="day-selector" id="day-selector">
+<button class="day-btn active" onclick="selectDay('A')" id="day-A">Noite A</button>
+<button class="day-btn" onclick="selectDay('B')" id="day-B">Noite B</button>
+<button class="day-btn" onclick="selectDay('C')" id="day-C">Noite C</button>
+<button class="day-btn" onclick="selectDay('cal')" id="day-cal">📅 Calendário</button>
+</div>
+
+```
+<div id="night-A-content">
+<div class="alert-box">
+<strong>🌙 Noite A — Retinal + Clareamento</strong>
+Seg · Qua · Sex — Foco: linhas de expressão e manchas
+</div>
+<div class="progress-wrap">
+<div class="progress-label">
+<span>Progresso</span>
+<span id="nightA-count">0 / 9</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill night-fill" id="nightA-bar" style="width:0%"></div>
+</div>
+</div>
+<div class="routine-card" id="nightA-list"></div>
+<button class="reset-btn" onclick="resetRoutine('nightA')">↺ Recomeçar rotina</button>
+</div>
+
+<div id="night-B-content" style="display:none">
+<div class="alert-box">
+<strong>✨ Noite B — BHA + Differin</strong>
+Ter · Qui — Foco: poros pretos e renovação celular
+</div>
+<div class="progress-wrap">
+<div class="progress-label">
+<span>Progresso</span>
+<span id="nightB-count">0 / 8</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill night-fill" id="nightB-bar" style="width:0%"></div>
+</div>
+</div>
+<div class="routine-card" id="nightB-list"></div>
+<button class="reset-btn" onclick="resetRoutine('nightB')">↺ Recomeçar rotina</button>
+</div>
+
+<div id="night-C-content" style="display:none">
+<div class="alert-box">
+<strong>💤 Noite C — Descanso</strong>
+Sáb · Dom — Só hidratação, sem ativos
+</div>
+<div class="progress-wrap">
+<div class="progress-label">
+<span>Progresso</span>
+<span id="nightC-count">0 / 5</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill night-fill" id="nightC-bar" style="width:0%"></div>
+</div>
+</div>
+<div class="routine-card" id="nightC-list"></div>
+<button class="reset-btn" onclick="resetRoutine('nightC')">↺ Recomeçar rotina</button>
+</div>
+
+<div id="night-cal-content" style="display:none">
+<div class="section-label">
+<div class="line"></div>
+<span>Calendário Semanal</span>
+<div class="line"></div>
+</div>
+<div class="calendar-card">
+<div class="cal-header">
+<div class="cal-header-cell">Dia</div>
+<div class="cal-header-cell">☀️ Manhã</div>
+<div class="cal-header-cell">🌙 Noite</div>
+</div>
+<div class="cal-row"><div class="cal-day">Seg</div><div class="cal-cell"><span class="cal-badge badge-sun">Rotina Diurna</span></div><div class="cal-cell"><span class="cal-badge badge-a">Noite A — Retinal</span></div></div>
+<div class="cal-row"><div class="cal-day">Ter</div><div class="cal-cell"><span class="cal-badge badge-sun">Rotina Diurna</span></div><div class="cal-cell"><span class="cal-badge badge-b">Noite B — BHA</span></div></div>
+<div class="cal-row"><div class="cal-day">Qua</div><div class="cal-cell"><span class="cal-badge badge-sun">Rotina Diurna</span></div><div class="cal-cell"><span class="cal-badge badge-a">Noite A — Retinal</span></div></div>
+<div class="cal-row"><div class="cal-day">Qui</div><div class="cal-cell"><span class="cal-badge badge-sun">Rotina Diurna</span></div><div class="cal-cell"><span class="cal-badge badge-b">Noite B — BHA</span></div></div>
+<div class="cal-row"><div class="cal-day">Sex</div><div class="cal-cell"><span class="cal-badge badge-sun">Rotina Diurna</span></div><div class="cal-cell"><span class="cal-badge badge-a">Noite A — Retinal</span></div></div>
+<div class="cal-row"><div class="cal-day">Sáb</div><div class="cal-cell"><span class="cal-badge badge-sun">Rotina Diurna</span></div><div class="cal-cell"><span class="cal-badge badge-c">Noite C — Descanso</span></div></div>
+<div class="cal-row"><div class="cal-day">Dom</div><div class="cal-cell"><span class="cal-badge badge-sun">Rotina Diurna</span></div><div class="cal-cell"><span class="cal-badge badge-c">Noite C — Descanso</span></div></div>
+</div>
+<div class="alert-box">
+<strong>⚠️ Regras de ouro</strong>
+Nunca use Retinal e Differin na mesma noite · SPF todo dia sem exceção · Retinol Shot guarde para alternar com o Retinal quando acabar o Differin
+</div>
+</div>
+```
+
+</div>
+</div>
+
+<!-- PRODUCTS TAB -->
+
+<div class="content" id="tab-products">
+<div class="section-label">
+<div class="line"></div>
+<span>Seus produtos</span>
+<div class="line"></div>
+</div>
+<div id="products-list"></div>
+
+<div class="add-section">
+<h3>+ Adicionar produto</h3>
+<input class="input-field" id="new-product-name" placeholder="Nome do produto" />
+<input class="input-field" id="new-product-use" placeholder="Para que serve (ex: hidratante)" />
+<div class="select-row">
+<select class="select-field" id="new-product-when">
+<option value="morning">☀️ Manhã</option>
+<option value="night">🌙 Noite</option>
+<option value="both">☀️🌙 Ambos</option>
+</select>
+<select class="select-field" id="new-product-emoji">
+<option value="🧴">🧴</option>
+<option value="✨">✨</option>
+<option value="💧">💧</option>
+<option value="🌙">🌙</option>
+<option value="☀️">☀️</option>
+<option value="🔬">🔬</option>
+<option value="💊">💊</option>
+<option value="🫧">🫧</option>
+</select>
+</div>
+<button class="add-btn" onclick="addProduct()">Adicionar produto</button>
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- MODAL -->
+
+<div id="modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1000; align-items:flex-end; justify-content:center;">
+<div id="modal-box" style="background:white; border-radius:24px 24px 0 0; padding:28px 24px 40px; width:100%; max-width:480px; box-shadow:0 -8px 40px rgba(0,0,0,0.2);">
+<p id="modal-title" style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:#3D2B1F; margin-bottom:6px; font-weight:400;"></p>
+<p id="modal-sub" style="font-size:0.9rem; color:#8A6F5E; margin-bottom:22px; line-height:1.5;"></p>
+<div id="modal-buttons" style="display:flex; flex-direction:column; gap:10px;"></div>
+</div>
+</div>
 
 <script>
-const WORD_BANK = [
-  
-  { word: "abandoned", def: "Left behind or deserted", sentence: "The officers found the ___ vehicle on the highway shoulder." },
-  { word: "accelerator", def: "A device for increasing speed, such as a gas pedal", sentence: "The suspect pressed the ___ and fled the scene at high speed." },
-  { word: "accessories", def: "Additional items or accomplices in a crime", sentence: "She was charged as an accessory, along with two other ___." },
-  { word: "accomplice", def: "A person who helps another commit a crime", sentence: "The ___ waited in the getaway car during the robbery." },
-  { word: "accountability", def: "The obligation to accept responsibility", sentence: "The department emphasized ___ in all use-of-force incidents." },
-  { word: "acquaintance", def: "A person one knows slightly", sentence: "The victim identified the suspect as a casual ___." },
-  { word: "acquitted", def: "Found not guilty of a criminal charge", sentence: "The jury deliberated for two days before the defendant was ___." },
-  { word: "adjacent", def: "Next to or near something", sentence: "The witness lived in the ___ apartment and heard the disturbance." },
-  { word: "administrative", def: "Relating to the management of an organization", sentence: "The officer was placed on ___ leave pending the investigation." },
-  { word: "admissible", def: "Acceptable or valid, especially as evidence in court", sentence: "The judge ruled the confession was ___ in court." },
-  { word: "admonition", def: "A firm warning or reprimand", sentence: "The sergeant issued a formal ___ regarding the officer's conduct." },
-  { word: "affidavit", def: "A written statement confirmed by oath for use as evidence", sentence: "The detective prepared an ___ to support the search warrant." },
-  { word: "aggravated", def: "Made more serious, especially regarding criminal charges", sentence: "The charge was upgraded to ___ assault due to the weapon used." },
-  { word: "allege", def: "To claim something without proof", sentence: "The complainant continued to ___ that the officer used excessive force." },
-  { word: "ammunition", def: "Bullets, shells, and other projectiles", sentence: "Officers discovered a large cache of ___ in the basement." },
-  { word: "anonymous", def: "From an unknown or unidentified person", sentence: "The tip came from an ___ caller who refused to leave a name." },
-  { word: "apparent", def: "Clearly visible or understood; obvious", sentence: "There was no ___ cause of death at the scene." },
-  { word: "apprehend", def: "To arrest or catch a suspect", sentence: "Units were dispatched to ___ the suspect before he crossed state lines." },
-  { word: "arraignment", def: "A court proceeding where charges are formally read", sentence: "The defendant's ___ was scheduled for Monday morning." },
-  { word: "arson", def: "The criminal act of deliberately setting fire to property", sentence: "Investigators determined the warehouse fire was ___." },
-  { word: "asphyxiated", def: "Killed or rendered unconscious from lack of oxygen", sentence: "The medical examiner concluded the victim had been ___." },
-  { word: "assault", def: "A physical attack or threat of violence", sentence: "The suspect was charged with ___ and battery." },
-  { word: "attorney", def: "A person appointed to act for another in legal matters", sentence: "The defendant requested an ___ before answering any questions." },
-  { word: "authorization", def: "Official permission or approval", sentence: "The officer obtained ___ from the captain before proceeding." },
-  { word: "barricade", def: "A barrier used to block passage", sentence: "Officers set up a ___ around the perimeter of the building." },
-  { word: "beginning", def: "The point in time when something starts", sentence: "From the ___ of the investigation, evidence pointed to the neighbor." },
-  { word: "belligerent", def: "Hostile and aggressive", sentence: "The suspect became increasingly ___ during the traffic stop." },
-  { word: "bicycle", def: "A two-wheeled vehicle powered by pedaling", sentence: "The thief escaped on a ___ heading eastbound on Main Street." },
-  { word: "boulevard", def: "A wide street, often lined with trees", sentence: "The collision occurred at the intersection of Oak ___ and 5th." },
-  { word: "breathalyzer", def: "A device for measuring blood alcohol from a breath sample", sentence: "The driver refused to submit to a ___ test." },
-  { word: "bruise", def: "An injury causing discoloration of the skin", sentence: "The victim had a visible ___ on her left forearm." },
-  { word: "bulletin", def: "An official statement or broadcast report", sentence: "A ___ was issued to all units with the suspect's description." },
-  { word: "bureau", def: "A government department or agency", sentence: "The case was referred to the Federal ___ of Investigation." },
-  { word: "burglary", def: "Illegal entry into a building with intent to commit a crime", sentence: "The residence showed signs of forced entry consistent with ___." },
-  { word: "calendar", def: "A system for organizing days and dates", sentence: "The court ___ was full, pushing the hearing to next month." },
-  { word: "campaign", def: "An organized effort to achieve a goal", sentence: "The department launched a public safety ___ to reduce speeding." },
-  { word: "captain", def: "A senior officer rank in law enforcement", sentence: "The ___ approved the overtime request for the surveillance detail." },
-  { word: "cartridge", def: "A casing containing a bullet and explosive charge", sentence: "A spent ___ was recovered near the driver's side door." },
-  { word: "casualty", def: "A person killed or injured in an incident", sentence: "Fortunately, there was only one ___ in the multi-car pileup." },
-  { word: "ceiling", def: "The upper interior surface of a room", sentence: "The bullet hole was found in the ___ of the second-floor apartment." },
-  { word: "cemetery", def: "A burial ground", sentence: "The suspect was apprehended hiding in the ___ on Elm Street." },
-  { word: "chauffeur", def: "A person employed to drive a vehicle", sentence: "The ___ stated he dropped off the passenger at approximately 9 PM." },
-  { word: "circumstance", def: "A condition or fact connected to an event", sentence: "Given the ___ of the arrest, Internal Affairs opened a review." },
-  { word: "coarse", def: "Rough in texture; rude in manner", sentence: "The witness described the suspect's voice as loud and ___." },
-  { word: "coerce", def: "To persuade by force or threats", sentence: "The defense argued that police attempted to ___ a confession." },
-  { word: "coherent", def: "Logical and consistent; able to speak clearly", sentence: "The witness was shaken but still able to give a ___ statement." },
-  { word: "collaborate", def: "To work jointly with others", sentence: "Multiple agencies agreed to ___ on the trafficking investigation." },
-  { word: "collision", def: "An instance of two objects crashing into each other", sentence: "The ___ occurred at approximately 2:30 AM on Interstate 95." },
-  { word: "colonel", def: "A high-ranking military or law enforcement officer", sentence: "The ___ addressed the graduating class of cadets." },
-  { word: "commercial", def: "Relating to commerce or business", sentence: "The break-in occurred at a ___ property on Industrial Drive." },
-  { word: "commission", def: "An authority given to carry out a task", sentence: "The police ___ voted to adopt the new use-of-force policy." },
-  { word: "committed", def: "Carried out or perpetrated", sentence: "Evidence showed the crime was ___ between midnight and 3 AM." },
-  { word: "communication", def: "The exchange of information", sentence: "Radio ___ was lost during the pursuit through the tunnel." },
-  { word: "complainant", def: "A person who makes a formal complaint", sentence: "The ___ provided a detailed written statement at the precinct." },
-  { word: "concealed", def: "Hidden from sight", sentence: "The officer discovered a ___ weapon in the suspect's waistband." },
-  { word: "conscience", def: "An inner sense of right and wrong", sentence: "His ___ eventually led him to turn himself in to authorities." },
-  { word: "conscious", def: "Awake and aware of surroundings", sentence: "The victim was still ___ when paramedics arrived on scene." },
-  { word: "conspiracy", def: "A secret plan by a group to do something unlawful", sentence: "All three defendants were charged with ___ to commit fraud." },
-  { word: "contraband", def: "Goods that are illegal to possess or trade", sentence: "K-9 units detected ___ hidden in the vehicle's spare tire." },
-  { word: "cooperate", def: "To work together or comply with a request", sentence: "The suspect initially refused to ___ with the investigation." },
-  { word: "coroner", def: "An official who investigates unexplained deaths", sentence: "The ___ was called to the scene to examine the remains." },
-  { word: "corroborate", def: "To confirm or support with additional evidence", sentence: "Surveillance footage helped ___ the witness's account of events." },
-  { word: "counterfeit", def: "Made in imitation to deceive; forged", sentence: "The store clerk identified the ___ bills and called police." },
-  { word: "courteous", def: "Polite, respectful, and considerate", sentence: "Officers are expected to remain ___ during all public interactions." },
-  { word: "credibility", def: "The quality of being trusted and believed in", sentence: "The defense attorney attacked the witness's ___ during cross-examination." },
-  { word: "deceased", def: "No longer living; dead", sentence: "The ___ was identified through dental records." },
-  { word: "defendant", def: "A person accused in a court of law", sentence: "The ___ entered a plea of not guilty on all counts." },
-  { word: "delinquent", def: "A young person who regularly commits crimes", sentence: "The juvenile ___ was referred to a community rehabilitation program." },
-  { word: "demeanor", def: "Outward behavior or bearing", sentence: "The officer noted the driver's nervous ___ during the stop." },
-  { word: "description", def: "A spoken or written account of characteristics", sentence: "The witness provided a detailed ___ of the suspect's vehicle." },
-  { word: "diesel", def: "A type of fuel used in certain engines", sentence: "The truck ran on ___ and left a distinct trail of exhaust." },
-  { word: "disappear", def: "To cease to be visible or to vanish", sentence: "The suspect seemed to ___ into the crowd after the incident." },
-  { word: "disappointed", def: "Sad or displeased because expectations were not met", sentence: "The chief was ___ by the lack of progress on the case." },
-  { word: "discipline", def: "The practice of training to follow rules; punishment", sentence: "The review board recommended ___ for the officer's misconduct." },
-  { word: "dispatched", def: "Sent off to a destination or for a purpose", sentence: "Two patrol units were ___ to the scene immediately." },
-  { word: "disseminate", def: "To spread information widely", sentence: "The department worked to ___ the suspect's photo to the public." },
-  { word: "disturbance", def: "A disruption of peace or order", sentence: "Neighbors reported a domestic ___ at approximately 11 PM." },
-  { word: "embarrass", def: "To cause awkwardness or shame", sentence: "The leaked report threatened to ___ the entire department." },
-  { word: "embezzlement", def: "Theft of funds placed in one's trust", sentence: "The treasurer was charged with ___ of over $200,000." },
-  { word: "emergency", def: "A serious, unexpected situation requiring immediate action", sentence: "All available units responded to the ___ at the downtown mall." },
-  { word: "enforcement", def: "The act of compelling compliance with a law", sentence: "The new traffic ___ initiative reduced accidents by 30%." },
-  { word: "equipment", def: "Tools, devices, or items needed for a purpose", sentence: "All tactical ___ must be inspected before each deployment." },
-  { word: "erratic", def: "Unpredictable and irregular in behavior or movement", sentence: "The vehicle was swerving in an ___ pattern across three lanes." },
-  { word: "cocaine", def: "An illegal stimulant drug", sentence: "Field testing confirmed the white powder was ___." },
-  { word: "conviction", def: "A formal declaration of guilt by a court", sentence: "The ___ was his third felony offense." },
-  { word: "corpse", def: "A dead body", sentence: "The ___ was discovered by hikers near the riverbank." },
-  { word: "correctional", def: "Relating to punishment and rehabilitation of offenders", sentence: "He was transferred to a ___ facility upstate." },
-  { word: "custody", def: "The protective care or guardianship of someone", sentence: "The suspect was taken into ___ without incident." },
-  { word: "cylinder", def: "A chamber in an engine or firearm", sentence: "The revolver's ___ contained four spent rounds." },
-  { word: "depression", def: "A mental condition marked by sadness; a sunken area", sentence: "A ___ in the ground near the shed led to the discovery of buried evidence." },
-  { word: "detention", def: "The state of being kept in custody", sentence: "The juvenile was held in ___ overnight awaiting a hearing." },
-  { word: "disposition", def: "The final settlement of a matter", sentence: "The ___ of the case was recorded as closed by arrest." },
-  { word: "dissent", def: "Disagreement with an official view", sentence: "One board member voiced ___ regarding the new pursuit policy." },
-  { word: "duress", def: "Threats or force used to compel someone to act", sentence: "The confession was thrown out because it was obtained under ___." },
-  { word: "epileptic", def: "Relating to or affected by epilepsy", sentence: "Witnesses mistook the ___ seizure for a drug overdose." },
-  { word: "artificial", def: "Made by humans rather than occurring naturally", sentence: "The crime scene had been staged with ___ evidence." },
-  
-  { word: "evidence", def: "Facts or information indicating guilt or innocence", sentence: "The ___ collected at the scene was sent to the crime lab." },
-  { word: "examination", def: "A detailed inspection or investigation", sentence: "The medical ___ revealed injuries consistent with blunt force trauma." },
-  { word: "exceed", def: "To go beyond a limit or standard", sentence: "The driver was cited for traveling at speeds that ___ the posted limit." },
-  { word: "exercise", def: "Physical activity or the use of a power or right", sentence: "Officers must ___ caution when approaching an unknown vehicle." },
-  { word: "exhaust", def: "To use up completely; fumes from an engine", sentence: "Detectives worked to ___ every possible lead in the case." },
-  { word: "experience", def: "Practical contact with events or knowledge gained", sentence: "The detective's ___ proved invaluable during the interrogation." },
-  { word: "explanation", def: "A statement that makes something clear", sentence: "The suspect offered no ___ for his presence at the scene." },
-  { word: "explosion", def: "A violent release of energy", sentence: "The ___ was heard several blocks away from the warehouse." },
-  { word: "extortion", def: "Obtaining something through force or threats", sentence: "The businessman reported being a victim of ___." },
-  { word: "felony", def: "A serious crime punishable by more than one year in prison", sentence: "Armed robbery is classified as a ___." },
-  { word: "feminine", def: "Having qualities associated with women", sentence: "The caller described a ___ voice on the other end of the phone." },
-  { word: "financial", def: "Relating to money or finance", sentence: "The suspect had a strong ___ motive for the crime." },
-  { word: "forcibly", def: "Using physical force or violence", sentence: "The door had been ___ opened with a pry bar." },
-  { word: "foreign", def: "From another country or unfamiliar", sentence: "A ___ substance was found in the victim's bloodstream." },
-  { word: "forfeit", def: "To lose or give up as a penalty", sentence: "The defendant was ordered to ___ all assets obtained through fraud." },
-  { word: "forgery", def: "The crime of creating false documents or signatures", sentence: "The check was identified as a ___ by the bank teller." },
-  { word: "fornication", def: "Consensual sexual intercourse between unmarried persons", sentence: "The charge of ___ was dropped by the prosecutor." },
-  { word: "fracture", def: "A break, especially in a bone", sentence: "X-rays confirmed the victim suffered a ___ to the left wrist." },
-  { word: "fraudulent", def: "Obtained or achieved by deception", sentence: "The insurance claim was determined to be ___." },
-  { word: "fugitive", def: "A person who has escaped custody or is fleeing the law", sentence: "The ___ was spotted crossing the border near El Paso." },
-  { word: "furniture", def: "Movable articles in a room or building", sentence: "The ___ had been overturned during the struggle." },
-  { word: "gambling", def: "Playing games of chance for money", sentence: "The raid uncovered an illegal ___ operation in the back room." },
-  { word: "gauge", def: "An instrument for measuring; to estimate or judge", sentence: "Officers tried to ___ the suspect's level of intoxication." },
-  { word: "genuine", def: "Truly what it is said to be; authentic", sentence: "The expert confirmed the painting was ___ and not a forgery." },
-  { word: "government", def: "The system by which a state is governed", sentence: "The ___ building was evacuated due to a bomb threat." },
-  { word: "grievance", def: "A formal complaint about unfair treatment", sentence: "The officer filed a ___ with the union representative." },
-  { word: "guardian", def: "A person who is legally responsible for another", sentence: "The child's ___ was contacted after the arrest." },
-  { word: "handkerchief", def: "A piece of cloth for wiping the face or nose", sentence: "The suspect dropped a ___ at the crime scene." },
-  { word: "hazard", def: "A danger or risk", sentence: "The spilled fuel created a serious ___ for first responders." },
-  { word: "hemorrhage", def: "Severe or uncontrollable bleeding", sentence: "The victim suffered a ___ and was rushed to surgery." },
-  { word: "heroin", def: "A highly addictive illegal opioid drug", sentence: "Officers seized three kilograms of ___ during the raid." },
-  { word: "homicide", def: "The killing of one person by another", sentence: "The case was classified as a ___ pending further investigation." },
-  { word: "horizontal", def: "Parallel to the ground; flat and level", sentence: "The victim was found in a ___ position on the floor." },
-  { word: "hydrant", def: "An outdoor water pipe for firefighting", sentence: "The vehicle was parked illegally in front of the fire ___." },
-  { word: "identified", def: "Recognized or established who someone is", sentence: "The witness ___ the suspect from a photo lineup." },
-  { word: "illiterate", def: "Unable to read or write", sentence: "The suspect claimed to be ___ and could not sign the statement." },
-  { word: "immediately", def: "Without any delay; at once", sentence: "Backup was requested ___ after shots were fired." },
-  { word: "implementation", def: "The process of putting a plan into effect", sentence: "The ___ of the new policy begins next quarter." },
-  { word: "impossible", def: "Not able to occur, exist, or be done", sentence: "It was ___ to determine the time of death from the remains." },
-  { word: "incorrigible", def: "Not able to be corrected or reformed", sentence: "The judge deemed the repeat offender ___." },
-  { word: "incriminate", def: "To make someone appear guilty of a crime", sentence: "The evidence was enough to ___ both suspects." },
-  { word: "indecent", def: "Offending against standards of morality or modesty", sentence: "The suspect was charged with ___ exposure." },
-  { word: "indigent", def: "Poor; lacking the necessities of life", sentence: "The ___ defendant was appointed a public defender." },
-  { word: "informant", def: "A person who provides information to the police", sentence: "The confidential ___ provided the tip that led to the arrest." },
-  { word: "inherent", def: "Existing as a natural or permanent quality", sentence: "There are ___ risks in any high-speed pursuit." },
-  { word: "initial", def: "Existing or occurring at the beginning", sentence: "The ___ investigation did not reveal signs of foul play." },
-  { word: "inquiry", def: "An act of asking for information; an investigation", sentence: "An ___ was launched into the officer's use of force." },
-  { word: "insufficient", def: "Not enough; inadequate", sentence: "The evidence was deemed ___ to proceed with charges." },
-  { word: "intelligent", def: "Having high mental capacity", sentence: "The suspect was clearly ___ and tried to outsmart investigators." },
-  { word: "interrogate", def: "To question someone formally and intensively", sentence: "Detectives planned to ___ the suspect for several hours." },
-  { word: "intersection", def: "A point where two roads cross", sentence: "The accident occurred at the ___ of 5th and Broadway." },
-  { word: "intervention", def: "The act of becoming involved to alter an outcome", sentence: "Police ___ prevented the situation from escalating further." },
-  { word: "intimidation", def: "The act of frightening someone to compel action", sentence: "The witness reported acts of ___ by the defendant's associates." },
-  { word: "intoxicating", def: "Causing a loss of control due to alcohol or drugs", sentence: "The suspect was under the influence of an ___ substance." },
-  { word: "investigation", def: "A formal inquiry or examination", sentence: "The ___ lasted over six months before an arrest was made." },
-  { word: "jealous", def: "Feeling resentment toward someone's advantages", sentence: "The motive appeared to be a ___ rage over the affair." },
-  { word: "jewelry", def: "Personal ornaments such as rings and necklaces", sentence: "Over $50,000 worth of ___ was reported stolen." },
-  { word: "judgment", def: "The ability to make considered decisions; a court ruling", sentence: "The court issued its final ___ in the civil case." },
-  { word: "juvenile", def: "A young person below the age of legal responsibility", sentence: "The ___ was referred to family court." },
-  { word: "knowledge", def: "Facts, information, and skills acquired through experience", sentence: "The officer had extensive ___ of local gang activity." },
-  { word: "laboratory", def: "A room or building for scientific research or testing", sentence: "The samples were sent to the crime ___ for analysis." },
-  { word: "larceny", def: "Theft of personal property", sentence: "The defendant was convicted of grand ___." },
-  { word: "leisure", def: "Free time; time when one is not working", sentence: "The crime occurred during the victim's ___ time at the park." },
-  { word: "liability", def: "The state of being legally responsible", sentence: "The city faced significant ___ from the wrongful arrest." },
-  { word: "liaison", def: "A person who serves as a link between groups", sentence: "The ___ officer coordinated between the FBI and local police." },
-  { word: "lieutenant", def: "A mid-ranking officer in law enforcement or military", sentence: "The ___ supervised all detectives in the homicide division." },
-  { word: "liquor", def: "Alcoholic drink, especially distilled spirits", sentence: "The establishment was cited for selling ___ to minors." },
-  { word: "malicious", def: "Intending to do harm", sentence: "The fire was set with ___ intent to destroy evidence." },
-  { word: "marijuana", def: "A psychoactive drug from the cannabis plant", sentence: "Officers found two ounces of ___ during the vehicle search." },
-  { word: "menace", def: "A person or thing that is likely to cause harm; a threat", sentence: "The aggressive dog was deemed a public ___." },
-  { word: "metropolitan", def: "Relating to a large city and its surrounding areas", sentence: "The ___ police force handles cases across the entire county." },
-  { word: "microphone", def: "A device for converting sound into electrical signals", sentence: "The ___ in the interrogation room recorded the full confession." },
-  { word: "mileage", def: "The number of miles traveled", sentence: "The odometer showed unusually low ___ for the vehicle's age." },
-  { word: "miscellaneous", def: "Of various types or from various sources", sentence: "The locker contained ___ personal items belonging to the victim." },
-  { word: "mischief", def: "Playful troublemaking or minor damage", sentence: "The teenagers were charged with criminal ___." },
-  { word: "misdemeanor", def: "A minor criminal offense less serious than a felony", sentence: "Shoplifting under $500 is typically classified as a ___." },
-  { word: "misspelled", def: "Spelled incorrectly", sentence: "The officer's name was ___ on the official report." },
-  { word: "motorcycle", def: "A two-wheeled motor vehicle", sentence: "The suspect fled on a ___ traveling at over 100 mph." },
-  { word: "municipal", def: "Relating to a city or town government", sentence: "The ___ code prohibits parking on this side of the street." },
-  { word: "mustache", def: "Hair growing on the upper lip", sentence: "The suspect was described as having a thick dark ___." },
-  { word: "narcotics", def: "Drugs that affect mood or behavior, especially illegal ones", sentence: "The ___ division conducted the undercover operation." },
-  { word: "nausea", def: "A feeling of sickness with an urge to vomit", sentence: "The victim reported dizziness and ___ after the assault." },
-  { word: "necessary", def: "Required; essential", sentence: "The officer used only the force ___ to restrain the suspect." },
-  { word: "negotiable", def: "Open to discussion or modification", sentence: "The terms of the plea deal were still ___." },
-  { word: "neighbor", def: "A person living near or next door", sentence: "The ___ reported hearing gunshots at around midnight." },
-  { word: "noticeable", def: "Easily seen or noticed", sentence: "There was a ___ dent on the passenger side of the vehicle." },
-  { word: "obligation", def: "A duty or commitment", sentence: "Officers have an ___ to read suspects their Miranda rights." },
-  { word: "obnoxious", def: "Extremely unpleasant or offensive", sentence: "The ___ patron was asked to leave the establishment." },
-  { word: "obscene", def: "Offensive or disgusting, especially sexually", sentence: "The defendant was charged with distributing ___ material." },
-  { word: "obsolete", def: "No longer produced or used; out of date", sentence: "The department replaced its ___ radio equipment." },
-  { word: "obstacle", def: "A thing that blocks one's way or progress", sentence: "The debris in the road created a dangerous ___." },
-  { word: "occasion", def: "A particular time or instance of an event", sentence: "On more than one ___, the suspect was seen near the property." },
-  { word: "occurred", def: "Took place; happened", sentence: "The incident ___ shortly after midnight on Saturday." },
-  { word: "official", def: "A person holding public office or authority", sentence: "The city ___ issued a statement about the investigation." },
-  { word: "opportunity", def: "A set of circumstances making something possible", sentence: "The suspect waited for the right ___ to enter the building." },
-  { word: "ordinance", def: "A law or regulation enacted by a local authority", sentence: "The noise ___ prohibits loud music after 10 PM." },
-  { word: "oxygen", def: "A chemical element essential for breathing", sentence: "The paramedic administered ___ to the unconscious victim." },
-  { word: "parallel", def: "Two lines side by side and having the same distance apart", sentence: "The skid marks ran ___ to the curb for 50 feet." },
-  { word: "parole", def: "Conditional early release from prison", sentence: "The inmate was denied ___ at the hearing." },
-  { word: "passenger", def: "A traveler in a vehicle who is not the driver", sentence: "The front-seat ___ sustained minor injuries." },
-  { word: "patience", def: "The capacity to accept delay without getting angry", sentence: "The negotiator showed great ___ during the standoff." },
-  { word: "pedestrian", def: "A person walking along a road or in a developed area", sentence: "The ___ was struck while crossing the street." },
-  { word: "perjury", def: "The offense of lying under oath in court", sentence: "The witness was later charged with ___ for his false testimony." },
-  { word: "permanent", def: "Lasting or intended to last indefinitely", sentence: "The injury caused ___ damage to the victim's vision." },
-  { word: "persecute", def: "To subject someone to hostility or ill-treatment", sentence: "The defendant claimed officers attempted to ___ him for his beliefs." },
-  { word: "persistent", def: "Continuing firmly despite difficulty", sentence: "The detective's ___ efforts finally produced a breakthrough." },
-  { word: "personnel", def: "People employed in an organization", sentence: "All ___ were required to attend the training session." },
-  { word: "perspiration", def: "Sweat produced by the body", sentence: "Heavy ___ on the suspect's forehead suggested nervousness." },
-  { word: "physician", def: "A medical doctor", sentence: "The ___ documented the victim's injuries in a report." },
-  
-  { word: "pneumatic", def: "Operated by air or gas under pressure", sentence: "The ___ drill was used to breach the reinforced door." },
-  { word: "polygamy", def: "The practice of having more than one spouse", sentence: "The investigation revealed the suspect was engaged in ___." },
-  { word: "polygraph", def: "A lie detector machine", sentence: "The suspect agreed to take a ___ examination." },
-  { word: "possession", def: "The state of having or owning something", sentence: "The defendant was charged with ___ of a controlled substance." },
-  { word: "preliminary", def: "Coming before the main part; introductory", sentence: "The ___ hearing was scheduled for the following week." },
-  { word: "prescription", def: "A doctor's written instruction for medicine", sentence: "The pills were obtained without a valid ___." },
-  { word: "preservation", def: "The act of maintaining something in its original state", sentence: "The ___ of the crime scene was critical for forensic analysis." },
-  { word: "principal", def: "The most important; the head of a school", sentence: "The ___ suspect was identified through DNA evidence." },
-  { word: "principle", def: "A fundamental truth or proposition; a moral rule", sentence: "The officer acted on ___ when he reported the misconduct." },
-  { word: "probationary", def: "Serving a trial period", sentence: "The ___ officer was assigned to ride along with a veteran." },
-  { word: "procedure", def: "An established way of doing something", sentence: "Standard ___ requires two officers for any felony stop." },
-  { word: "professional", def: "Relating to a profession; competent and skilled", sentence: "The officer maintained a ___ demeanor throughout the encounter." },
-  { word: "prohibitive", def: "Serving to forbid or prevent", sentence: "The ___ cost of the equipment delayed the purchase." },
-  { word: "promiscuous", def: "Having many sexual partners", sentence: "The victim's ___ lifestyle was irrelevant to the investigation." },
-  { word: "prosecute", def: "To institute legal proceedings against someone", sentence: "The DA decided to ___ the case as a felony." },
-  { word: "proximity", def: "Nearness in space, time, or relationship", sentence: "The suspect's ___ to the crime scene raised suspicion." },
-  { word: "psychology", def: "The scientific study of the human mind and behavior", sentence: "A background in ___ helped the negotiator during the crisis." },
-  { word: "pungent", def: "Having a sharply strong taste or smell", sentence: "A ___ chemical odor was detected near the storage unit." },
-  { word: "pursuit", def: "The action of following or chasing someone", sentence: "The high-speed ___ lasted for over twenty minutes." },
-  { word: "pyrotechnic", def: "Relating to fireworks or explosive devices", sentence: "The ___ device was detonated by the bomb squad." },
-  { word: "questionnaire", def: "A set of printed questions for a survey", sentence: "Each applicant was required to complete a background ___." },
-  { word: "receipt", def: "A written acknowledgment of payment", sentence: "The ___ from the gas station placed the suspect in the area." },
-  { word: "receive", def: "To be given or presented with something", sentence: "The precinct continued to ___ complaints from residents." },
-  { word: "reckless", def: "Without thinking or caring about consequences", sentence: "The driver was charged with ___ endangerment." },
-  { word: "recognize", def: "To identify from previous encounters or knowledge", sentence: "The victim was unable to ___ the attacker in the lineup." },
-  { word: "recommendation", def: "A suggestion or proposal about the best course of action", sentence: "The board's ___ was to suspend the officer without pay." },
-  { word: "recurrence", def: "The fact of occurring again", sentence: "Steps were taken to prevent a ___ of the incident." },
-  { word: "registration", def: "The action of officially recording information", sentence: "The vehicle ___ did not match the plates on the car." },
-  { word: "regrettable", def: "Giving rise to regret; undesirable", sentence: "The shooting was described as a ___ but justified use of force." },
-  { word: "reimburse", def: "To repay money spent", sentence: "The department agreed to ___ the officer for the damaged equipment." },
-  { word: "relevant", def: "Closely connected or appropriate to the matter", sentence: "Only ___ evidence will be presented to the jury." },
-  { word: "remember", def: "To recall information or past events", sentence: "The witness struggled to ___ exact details of the incident." },
-  { word: "representation", def: "The act of speaking on behalf of someone", sentence: "The defendant was entitled to legal ___ at the hearing." },
-  { word: "resistance", def: "The act of opposing or fighting against something", sentence: "The suspect offered significant ___ during the arrest." },
-  { word: "responsible", def: "Having an obligation to do something; being the cause", sentence: "The driver was held ___ for the fatal collision." },
-  { word: "restitution", def: "Compensation for loss or damage", sentence: "The court ordered the defendant to pay ___ to the victim." },
-  { word: "revolver", def: "A type of handgun with a revolving cylinder", sentence: "The officer identified the weapon as a .38 caliber ___." },
-  { word: "rhythmic", def: "Having a regular repeated pattern of movement or sound", sentence: "The witness heard a ___ knocking sound from the basement." },
-  { word: "robbery", def: "The act of taking property by force or threat", sentence: "The ___ took place at the bank on Main Street." },
-  { word: "sacrifice", def: "The act of giving up something valued", sentence: "Officers make great personal ___ to protect the community." },
-  { word: "satisfactory", def: "Meeting expectations; acceptable", sentence: "The recruit's performance was deemed ___ for graduation." },
-  { word: "schedule", def: "A plan for carrying out activities at fixed times", sentence: "The patrol ___ was adjusted to cover the holiday weekend." },
-  { word: "secretary", def: "A person who handles correspondence and records", sentence: "The ___ of the review board documented all proceedings." },
-  { word: "segregate", def: "To set apart from the rest or from each other", sentence: "Officers were instructed to ___ the witnesses before interviews." },
-  { word: "semiautomatic", def: "A firearm that fires one round per trigger pull and reloads automatically", sentence: "The weapon recovered was a ___ pistol." },
-  { word: "sequester", def: "To isolate or set apart", sentence: "The judge decided to ___ the jury for the duration of the trial." },
-  { word: "sergeant", def: "A mid-level non-commissioned officer rank", sentence: "The ___ assigned patrol routes for the evening shift." },
-  { word: "sheriff", def: "An elected law enforcement officer of a county", sentence: "The county ___ held a press conference about the manhunt." },
-  { word: "silhouette", def: "A dark outline against a lighter background", sentence: "The witness could only see the ___ of a figure in the doorway." },
-  { word: "simultaneous", def: "Occurring at the same time", sentence: "The raids were ___ across three different locations." },
-  { word: "sincerity", def: "The quality of being genuine and honest", sentence: "The detective questioned the ___ of the suspect's apology." },
-  { word: "skeleton", def: "The internal framework of bones", sentence: "A ___ was unearthed during the construction project." },
-  { word: "skeptical", def: "Not easily convinced; having doubts", sentence: "The jury appeared ___ of the witness's testimony." },
-  { word: "sobriety", def: "The state of being sober; not intoxicated", sentence: "The officer administered a field ___ test at the scene." },
-  { word: "sophisticated", def: "Highly developed or complex", sentence: "The criminals used a ___ scheme to launder money." },
-  { word: "specimen", def: "A sample taken for examination or testing", sentence: "A blood ___ was collected from the suspect." },
-  { word: "spontaneous", def: "Occurring without external cause; impulsive", sentence: "The fight appeared to be ___ rather than premeditated." },
-  { word: "stationary", def: "Not moving; fixed in one place", sentence: "The patrol car was ___ when the suspect's vehicle drove past." },
-  { word: "stationery", def: "Materials for writing, such as paper and envelopes", sentence: "The forged letter was printed on official department ___." },
-  { word: "statute", def: "A written law passed by a legislative body", sentence: "The ___ of limitations had expired on the misdemeanor charge." },
-  { word: "strangulate", def: "To squeeze or constrict the throat", sentence: "The autopsy revealed the victim had been ___d." },
-  { word: "subpoena", def: "A legal document ordering someone to attend court", sentence: "The witness was served with a ___ to testify." },
-  { word: "substantiate", def: "To provide evidence to support a claim", sentence: "The documents helped ___ the allegations of fraud." },
-  { word: "suffocate", def: "To die or cause death from lack of air", sentence: "The victim nearly ___d before rescuers arrived." },
-  { word: "superintendent", def: "A senior manager or the head of a department", sentence: "The ___ authorized the use of the special task force." },
-  { word: "surveillance", def: "Close observation, especially of a suspected person", sentence: "The ___ team monitored the suspect's home for three weeks." },
-  { word: "susceptible", def: "Likely to be influenced or harmed by something", sentence: "Elderly residents are more ___ to scams and fraud." },
-  { word: "suspicion", def: "A feeling that something is possible or likely", sentence: "The officer's ___ was confirmed when drugs were found." },
-  { word: "technician", def: "A person skilled in the details of a subject or craft", sentence: "The forensic ___ processed the fingerprints at the scene." },
-  { word: "temperature", def: "The degree of heat present in a substance or environment", sentence: "The body's ___ helped estimate the time of death." },
-  { word: "testimony", def: "A formal statement made under oath", sentence: "The witness gave compelling ___ at the trial." },
-  { word: "thorough", def: "Complete with regard to every detail", sentence: "The detective conducted a ___ search of the premises." },
-  { word: "tourniquet", def: "A device used to stop bleeding by compressing a blood vessel", sentence: "The officer applied a ___ to the victim's injured leg." },
-  { word: "toxicology", def: "The branch of science concerned with poisons", sentence: "The ___ report confirmed the presence of narcotics." },
-  { word: "transferred", def: "Moved from one place or position to another", sentence: "The inmate was ___ to a maximum-security facility." },
-  { word: "translucent", def: "Allowing light to pass through partially", sentence: "The ___ container revealed a powdery substance inside." },
-  { word: "trespassing", def: "Entering someone's land or property without permission", sentence: "The teenagers were arrested for ___ on private property." },
-  { word: "unconscious", def: "Not awake and not aware of surroundings", sentence: "The victim was found ___ on the kitchen floor." },
-  { word: "unnecessary", def: "Not needed; more than is required", sentence: "The review board found the level of force to be ___." },
-  { word: "vacuum", def: "A space entirely devoid of matter", sentence: "The forensic team used a ___ to collect trace evidence." },
-  { word: "vagrancy", def: "The state of living without a settled home or employment", sentence: "The suspect had prior arrests for ___ and petty theft." },
-  { word: "vehicle", def: "A thing used for transporting people or goods", sentence: "The suspect's ___ was located in an abandoned parking lot." },
-  { word: "velocity", def: "The speed of something in a given direction", sentence: "The bullet's ___ was calculated by the ballistics expert." },
-  { word: "vicinity", def: "The area near or surrounding a particular place", sentence: "Several witnesses in the ___ reported hearing gunfire." },
-  
-  { word: "warehouse", def: "A large building for storing goods", sentence: "The stolen merchandise was recovered from a ___ on the docks." },
-  { word: "warrant", def: "A document authorizing police to make an arrest or search", sentence: "The judge signed the search ___ after reviewing the evidence." },
-  { word: "Wednesday", def: "The day of the week after Tuesday", sentence: "The suspect was scheduled to appear in court on ___." },
-  { word: "weather", def: "The state of the atmosphere at a given time and place", sentence: "Severe ___ conditions hampered the search operation." },
-  { word: "welfare", def: "The health, happiness, and well-being of a person", sentence: "The officer conducted a ___ check on the elderly resident." },
-  { word: "whether", def: "Introducing alternatives or possibilities", sentence: "The detective had to determine ___ the witness was credible." },
-  { word: "whiskey", def: "A distilled alcoholic beverage", sentence: "An open bottle of ___ was found on the driver's seat." },
-  { word: "witness", def: "A person who sees an event take place", sentence: "The ___ agreed to testify at the grand jury hearing." },
-  { word: "wrapper", def: "A piece of material used for wrapping", sentence: "A candy ___ found at the scene matched one in the suspect's pocket." },
-  { word: "yield", def: "To give way to; to produce or provide", sentence: "The investigation did not ___ any new leads." },
-];
-
-const MS = {
-  "abandoned": ["abondoned", "abbandoned"],
-  "accelerator": ["accelorator", "accelerater"],
-  "accessories": ["accesseries", "acessories"],
-  "accomplice": ["acomplice", "accomplise"],
-  "accountability": ["accountibility", "accountablity"],
-  "acquaintance": ["acquaintence", "aquaintance"],
-  "acquitted": ["aquitted", "acquited"],
-  "adjacent": ["adjecent", "adjacant"],
-  "administrative": ["administative", "adminstrative"],
-  "admissible": ["admissable", "admisible"],
-  "admonition": ["admonision", "admonitian"],
-  "affidavit": ["affidavid", "afidavit"],
-  "aggravated": ["agravated", "aggrivated"],
-  "allege": ["alege", "alledge"],
-  "ammunition": ["amunition", "ammunision"],
-  "anonymous": ["anonimous", "annonymous"],
-  "apparent": ["apparant", "aparent"],
-  "apprehend": ["aprehend", "apprahend"],
-  "arraignment": ["arraingment", "arraignmant"],
-  "arson": ["arsen", "arsone"],
-  "asphyxiated": ["asphixiated", "aspyxiated"],
-  "assault": ["assualt", "assalt"],
-  "attorney": ["attourney", "atorney"],
-  "authorization": ["authorisation", "autherization"],
-  "barricade": ["baricade", "barracade"],
-  "beginning": ["begining", "begginning"],
-  "belligerent": ["beligerent", "belligerant"],
-  "bicycle": ["bycicle", "bicicle"],
-  "boulevard": ["boulavard", "bouleverd"],
-  "breathalyzer": ["breathalizer", "brethalyzer"],
-  "bruise": ["bruse", "bruize"],
-  "bulletin": ["bulliten", "buletin"],
-  "bureau": ["beureau", "burea"],
-  "burglary": ["burglery", "bulgary"],
-  "calendar": ["calender", "calander"],
-  "campaign": ["campain", "campagin"],
-  "captain": ["captian", "captin"],
-  "cartridge": ["catridge", "cartrige"],
-  "casualty": ["casuality", "casulty"],
-  "ceiling": ["cieling", "ceilling"],
-  "cemetery": ["cemetary", "cematary"],
-  "chauffeur": ["chauffer", "chaufeur"],
-  "circumstance": ["circumstanse", "circimstance"],
-  "coarse": ["coarce", "corse"],
-  "coerce": ["coerse", "coherse"],
-  "coherent": ["coherant", "coheirent"],
-  "collaborate": ["colaborate", "collabarate"],
-  "collision": ["colision", "collison"],
-  "colonel": ["kernal", "colonol"],
-  "commercial": ["comercial", "commerical"],
-  "commission": ["comission", "commision"],
-  "committed": ["comitted", "commited"],
-  "communication": ["comunication", "communicasion"],
-  "complainant": ["complaintant", "complainent"],
-  "concealed": ["consealed", "conceiled"],
-  "conscience": ["concience", "consience"],
-  "conscious": ["concious", "consious"],
-  "conspiracy": ["conspiricy", "conspirasy"],
-  "contraband": ["contriband", "contrabanned"],
-  "cooperate": ["coperate", "cooparate"],
-  "coroner": ["coronor", "coraner"],
-  "corroborate": ["coroborate", "corroberate"],
-  "counterfeit": ["counterfiet", "counterfit"],
-  "courteous": ["courtious", "courteaus"],
-  "credibility": ["credability", "creadibility"],
-  "deceased": ["decesed", "diceased"],
-  "defendant": ["defendent", "defandant"],
-  "delinquent": ["deliquent", "delinquint"],
-  "demeanor": ["demeaner", "demenor"],
-  "description": ["discription", "descrption"],
-  "diesel": ["deisel", "diesal"],
-  "disappear": ["dissapear", "disapear"],
-  "disappointed": ["dissapointed", "disapointed"],
-  "discipline": ["disipline", "discapline"],
-  "dispatched": ["dispached", "dispacth"],
-  "disseminate": ["diseminate", "dissemenate"],
-  "disturbance": ["disturbence", "disturbanse"],
-  "embarrass": ["embarass", "embarras"],
-  "embezzlement": ["embezlement", "embezzelment"],
-  "emergency": ["emergancy", "emmergency"],
-  "enforcement": ["enforcment", "enforsement"],
-  "equipment": ["equiptment", "equipmant"],
-  "erratic": ["eratic", "erradic"],
-  "cocaine": ["cocain", "cociane"],
-  "conviction": ["convicsion", "convicton"],
-  "corpse": ["corpes", "copse"],
-  "correctional": ["corectional", "correctonal"],
-  "custody": ["custady", "custidy"],
-  "cylinder": ["cylander", "cilinder"],
-  "depression": ["depresion", "deppression"],
-  "detention": ["detension", "detantion"],
-  "disposition": ["disposision", "desposition"],
-  "dissent": ["disent", "dissant"],
-  "duress": ["durress", "durace"],
-  "epileptic": ["epilepitc", "epeliptic"],
-  "artificial": ["artifical", "artifisial"],
-  "evidence": ["evidance", "evidince"],
-  "examination": ["examinasion", "examanation"],
-  "exceed": ["excede", "exseed"],
-  "exercise": ["exersize", "exercize"],
-  "exhaust": ["exaust", "exhust"],
-  "experience": ["experiance", "expirence"],
-  "explanation": ["explaination", "explanasion"],
-  "explosion": ["exsplosion", "explotion"],
-  "extortion": ["extorsion", "extorshion"],
-  "felony": ["fellony", "feloney"],
-  "feminine": ["feminin", "femminine"],
-  "financial": ["finantial", "finanical"],
-  "forcibly": ["forcablely", "forceably"],
-  "foreign": ["foriegn", "forein"],
-  "forfeit": ["forfiet", "forfit"],
-  "forgery": ["forgary", "forjery"],
-  "fornication": ["fornicasion", "fornikation"],
-  "fracture": ["fracther", "fractchure"],
-  "fraudulent": ["fraudulant", "fradulent"],
-  "fugitive": ["fugative", "fugiteve"],
-  "furniture": ["furnitur", "furnature"],
-  "gambling": ["gambleing", "gambeling"],
-  "gauge": ["guage", "gage"],
-  "genuine": ["geniune", "genuene"],
-  "government": ["goverment", "governmant"],
-  "grievance": ["greivance", "grievence"],
-  "guardian": ["gaurdian", "gardian"],
-  "handkerchief": ["hankerchief", "handkerchif"],
-  "hazard": ["hazzard", "hazerd"],
-  "hemorrhage": ["hemorrage", "hemorhage"],
-  "heroin": ["heroine", "heroen"],
-  "homicide": ["homacide", "homocide"],
-  "horizontal": ["horizonal", "horizontel"],
-  "hydrant": ["hydrent", "hydrint"],
-  "identified": ["identifed", "identafied"],
-  "illiterate": ["iliterate", "illiterat"],
-  "immediately": ["immediatly", "imediately"],
-  "implementation": ["implimentation", "implementasion"],
-  "impossible": ["imposible", "impossable"],
-  "incorrigible": ["incorigible", "incorrigable"],
-  "incriminate": ["incrimanate", "incrimenate"],
-  "indecent": ["indecant", "indescen"],
-  "indigent": ["indigant", "indigint"],
-  "informant": ["informent", "informint"],
-  "inherent": ["inheirent", "inherant"],
-  "initial": ["inital", "inishal"],
-  "inquiry": ["enquiry", "inquirey"],
-  "insufficient": ["insuficient", "insufficent"],
-  "intelligent": ["inteligent", "intellegent"],
-  "interrogate": ["interogate", "interagate"],
-  "intersection": ["intersecton", "intersectoin"],
-  "intervention": ["intervension", "interventon"],
-  "intimidation": ["intimadation", "intimidasion"],
-  "intoxicating": ["intoxacating", "intoxecating"],
-  "investigation": ["investigasion", "investagation"],
-  "jealous": ["jelous", "jealos"],
-  "jewelry": ["jewlery", "jewellry"],
-  "judgment": ["judgement", "judgmant"],
-  "juvenile": ["juvinile", "juvenille"],
-  "knowledge": ["knowlege", "knowledg"],
-  "laboratory": ["labratory", "laboritory"],
-  "larceny": ["larseny", "larconey"],
-  "leisure": ["liesure", "lesure"],
-  "liability": ["liablity", "liabilty"],
-  "liaison": ["liason", "liasion"],
-  "lieutenant": ["leutenant", "lieutenent"],
-  "liquor": ["liqour", "licquor"],
-  "malicious": ["malicous", "malishious"],
-  "marijuana": ["marihuana", "marijuanna"],
-  "menace": ["menase", "menece"],
-  "metropolitan": ["metroplitan", "metropoliten"],
-  "microphone": ["micraphone", "micrphone"],
-  "mileage": ["milage", "mileige"],
-  "miscellaneous": ["miscellanious", "miscelaneous"],
-  "mischief": ["mischif", "mischef"],
-  "misdemeanor": ["misdemener", "misdemenor"],
-  "misspelled": ["mispelled", "misspeled"],
-  "motorcycle": ["motorcylce", "motercycle"],
-  "municipal": ["muncipal", "municipel"],
-  "mustache": ["mustash", "mustasche"],
-  "narcotics": ["narcoitcs", "narcotiks"],
-  "nausea": ["nausia", "nausua"],
-  "necessary": ["neccessary", "neccesary"],
-  "negotiable": ["negociable", "negotible"],
-  "neighbor": ["nieghbor", "neighbour"],
-  "noticeable": ["noticable", "notiseable"],
-  "obligation": ["obligasion", "obligaton"],
-  "obnoxious": ["obnoxous", "obnoxious"],
-  "obscene": ["obsene", "obsceen"],
-  "obsolete": ["obselete", "obsoleet"],
-  "obstacle": ["obstical", "obstecle"],
-  "occasion": ["occassion", "ocasion"],
-  "occurred": ["occured", "ocurred"],
-  "official": ["offical", "offisial"],
-  "opportunity": ["oportunity", "oppertunity"],
-  "ordinance": ["ordanance", "ordinence"],
-  "oxygen": ["oxigen", "oxeygen"],
-  "parallel": ["paralel", "parralel"],
-  "parole": ["perol", "paroll"],
-  "passenger": ["passanger", "pasenger"],
-  "patience": ["patiense", "patiance"],
-  "pedestrian": ["pedestrain", "padestrian"],
-  "perjury": ["purgery", "perjery"],
-  "permanent": ["permanant", "permenent"],
-  "persecute": ["prosocute", "persacute"],
-  "persistent": ["persistant", "persistint"],
-  "personnel": ["personel", "personell"],
-  "perspiration": ["persperation", "persparation"],
-  "physician": ["physican", "phisician"],
-  "pneumatic": ["neumetic", "pnuematic"],
-  "polygamy": ["poligamy", "polygamey"],
-  "polygraph": ["poligraph", "polygraff"],
-  "possession": ["posession", "possesion"],
-  "preliminary": ["prelimanary", "preliminery"],
-  "prescription": ["perscription", "presciption"],
-  "preservation": ["presevation", "preservasion"],
-  "principal": ["princapal", "principel"],
-  "principle": ["princaple", "principel"],
-  "probationary": ["probationary", "probashionary"],
-  "procedure": ["proceedure", "proceduer"],
-  "professional": ["proffesional", "profesional"],
-  "prohibitive": ["prohibative", "prohibitave"],
-  "promiscuous": ["promiscous", "promiskuous"],
-  "prosecute": ["prosocute", "prosecut"],
-  "proximity": ["proximaty", "proxamity"],
-  "psychology": ["psycology", "sychology"],
-  "pungent": ["pungant", "punjent"],
-  "pursuit": ["persuit", "pursute"],
-  "pyrotechnic": ["pyrotecnic", "pirotechnic"],
-  "questionnaire": ["questionaire", "questionairre"],
-  "receipt": ["reciept", "recipt"],
-  "receive": ["recieve", "receve"],
-  "reckless": ["reckles", "wreckless"],
-  "recognize": ["reconize", "recongnize"],
-  "recommendation": ["recomendation", "reccommendation"],
-  "recurrence": ["recurrance", "reccurrence"],
-  "registration": ["registrasion", "registraton"],
-  "regrettable": ["regretable", "regritable"],
-  "reimburse": ["reemburse", "reimburce"],
-  "relevant": ["relevent", "relavent"],
-  "remember": ["rember", "remeber"],
-  "representation": ["representasion", "represention"],
-  "resistance": ["resistence", "resistanse"],
-  "responsible": ["responsable", "responsibile"],
-  "restitution": ["restatution", "restitusion"],
-  "revolver": ["revolver", "revolvar"],
-  "rhythmic": ["rythmic", "rythimic"],
-  "robbery": ["robery", "robbary"],
-  "sacrifice": ["sacrafice", "sacrifise"],
-  "satisfactory": ["satisfactry", "satisfaktory"],
-  "schedule": ["schedual", "scedule"],
-  "secretary": ["secratary", "secretery"],
-  "segregate": ["segrigate", "segregete"],
-  "semiautomatic": ["semiautomtic", "semiautomattic"],
-  "sequester": ["sequestor", "seqester"],
-  "sergeant": ["sargent", "seargent"],
-  "sheriff": ["sherrif", "sherif"],
-  "silhouette": ["silhouete", "silouette"],
-  "simultaneous": ["simultanious", "simultanous"],
-  "sincerity": ["sinserity", "sincerety"],
-  "skeleton": ["skelaton", "skeleten"],
-  "skeptical": ["sceptical", "skepticle"],
-  "sobriety": ["sobriaety", "sobreity"],
-  "sophisticated": ["sofisticated", "sophistacated"],
-  "specimen": ["speciman", "specimin"],
-  "spontaneous": ["spontanious", "spontanous"],
-  "stationary": ["stationery", "stationairy"],
-  "stationery": ["stationary", "stationairy"],
-  "statute": ["statue", "statut"],
-  "strangulate": ["strangalate", "strangulat"],
-  "subpoena": ["subpena", "subpeona"],
-  "substantiate": ["substanciate", "substantiete"],
-  "suffocate": ["sufocate", "suffacate"],
-  "superintendent": ["superintendant", "superindendent"],
-  "surveillance": ["surveilance", "survaillance"],
-  "susceptible": ["suseptable", "susceptable"],
-  "suspicion": ["suspision", "suspician"],
-  "technician": ["technicion", "technicien"],
-  "temperature": ["temperture", "temprature"],
-  "testimony": ["testimoney", "testamony"],
-  "thorough": ["thorogh", "thurough"],
-  "tourniquet": ["tournaquet", "torniquett"],
-  "toxicology": ["toxicollogy", "toxacology"],
-  "transferred": ["transfered", "transfurred"],
-  "translucent": ["translucant", "transluscent"],
-  "trespassing": ["trespasing", "tresspassing"],
-  "unconscious": ["unconcious", "unconshious"],
-  "unnecessary": ["unneccesary", "unneccessary"],
-  "vacuum": ["vaccum", "vacume"],
-  "vagrancy": ["vagrency", "vagransy"],
-  "vehicle": ["vehical", "vehicel"],
-  "velocity": ["velosity", "velocety"],
-  "vicinity": ["vicintiy", "visinity"],
-  "warehouse": ["warhouse", "warehouze"],
-  "warrant": ["warrent", "warant"],
-  "Wednesday": ["Wendsday", "Wensday"],
-  "weather": ["wether", "wheather"],
-  "welfare": ["wellfare", "welfair"],
-  "whether": ["wether", "wheather"],
-  "whiskey": ["wiskey", "whisky"],
-  "witness": ["witnes", "wittness"],
-  "wrapper": ["wraper", "rapper"],
-  "yield": ["yeild", "yeeld"],
+// ---- STATE ----
+const DEFAULT_STATE = {
+morningChecked: {}, nightAChecked: {}, nightBChecked: {}, nightCChecked: {},
+skippedSteps: [], // keys of steps removed due to out-of-stock
+products: [
+{ id: 1, name: 'Neutrogena Oil-Free Eye Makeup Remover', use: 'Demaquilante olhos', when: 'both', emoji: '💧', status: 'ok' },
+{ id: 2, name: 'CeraVe Balancing Air Foam Cleanser', use: 'Limpeza facial', when: 'both', emoji: '🫧', status: 'ok' },
+{ id: 3, name: 'Thayers Facial Toner', use: 'Equilibrar pH da pele', when: 'both', emoji: '🧴', status: 'ok' },
+{ id: 4, name: 'Vichy Vitamina C', use: 'Manchas + luminosidade', when: 'both', emoji: '✨', status: 'ok' },
+{ id: 5, name: 'Celimax Pore Dark Spot', use: 'Poros + manchas', when: 'night', emoji: '🔬', status: 'ok' },
+{ id: 6, name: 'The Ordinary Factors + Beta Glucan', use: 'Hidratação + peptídeos', when: 'both', emoji: '💧', status: 'ok' },
+{ id: 7, name: 'Celimax Retinal', use: 'Linhas de expressão + manchas', when: 'night', emoji: '🌙', status: 'ok' },
+{ id: 8, name: 'CeraVe Eye Repair Cream', use: 'Olheiras', when: 'both', emoji: '👁️', status: 'ok' },
+{ id: 9, name: 'La Roche-Posay Lipikar', use: 'Barreira + hidratação final', when: 'night', emoji: '🧴', status: 'ok' },
+{ id: 10, name: 'COSRX BHA Blackhead Power Liquid', use: 'Poros pretos', when: 'night', emoji: '🔬', status: 'ok' },
+{ id: 11, name: 'The Ordinary Niacinamide 10% + Zinc 1%', use: 'Poros + oleosidade', when: 'both', emoji: '✨', status: 'ok' },
+{ id: 12, name: 'Differin Gel (Adapaleno)', use: 'Linhas de expressão', when: 'night', emoji: '🌙', status: 'ok' },
+{ id: 13, name: 'La Roche-Posay Cicaplast', use: 'Acalmar + reparar barreira', when: 'night', emoji: '🧴', status: 'ok' },
+{ id: 14, name: 'CeraVe Ultra-Light Moisturizing', use: 'Hidratação leve', when: 'morning', emoji: '💧', status: 'ok' },
+{ id: 15, name: 'La Roche-Posay SPF 50 Tinted Mineral', use: 'Proteção solar', when: 'morning', emoji: '☀️', status: 'ok' },
+{ id: 16, name: 'CeraVe Facial Lotion SPF 30', use: 'Proteção solar (corpo)', when: 'morning', emoji: '☀️', status: 'ok' },
+{ id: 17, name: 'Celimax Retinol Shot Serum', use: 'Reserva (alternar com Retinal)', when: 'night', emoji: '🌙', status: 'ok' },
+{ id: 18, name: 'Abib Airy Sunstick SPF50+', use: 'Proteção solar — leve e seco', when: 'morning', emoji: '☀️', status: 'ok' },
+{ id: 19, name: 'Abib Quick Sunstick SPF50+', use: 'Proteção solar — reaplique fácil', when: 'morning', emoji: '☀️', status: 'ok' },
+]
 };
 
-function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
-const QT=["standard","fillBlank","definition"];
-function genQ(used){
-  const pool=WORD_BANK.filter(w=>!used.has(w.word));
-  const src=pool.length>0?pool:WORD_BANK;
-  const e=src[Math.floor(Math.random()*src.length)];
-  const wrong=MS[e.word]||[e.word.slice(0,3)+e.word.slice(4),e.word+"e"];
-  const opts=shuffle([e.word,...wrong]);
-  const type=QT[Math.floor(Math.random()*QT.length)];
-  return{...e,options:opts,correctIndex:opts.indexOf(e.word),type};
+const STATE_VER = 5;
+let state = (() => {
+try {
+const saved = localStorage.getItem('skincare-v2');
+if (saved) {
+const parsed = JSON.parse(saved);
+if (parsed._v === STATE_VER) return parsed;
+}
+} catch(e) {}
+const fresh = JSON.parse(JSON.stringify(DEFAULT_STATE));
+fresh._v = STATE_VER;
+return fresh;
+})();
+
+state.products.forEach(p => { if (!p.status) p.status = p.empty ? 'empty' : 'ok'; delete p.empty; });
+if (!state.skippedSteps) state.skippedSteps = [];
+state._v = STATE_VER;
+
+// ---- BASE STEPS (full list) ----
+const BASE_MORNING = [
+{ key: 'm1', name: 'CeraVe Air Foam Cleanser', purpose: 'Limpeza leve matinal' },
+{ key: 'm2', name: 'Thayers Facial Toner', purpose: 'Equilibrar pH' },
+{ key: 'm3', name: 'Vichy Vitamina C', purpose: 'Manchas + proteção antioxidante' },
+{ key: 'm4', name: 'The Ordinary Niacinamide 10% + Zinc', purpose: 'Poros + uniformizar' },
+{ key: 'm5', name: 'The Ordinary Factors + Beta Glucan', purpose: 'Hidratação + peptídeos' },
+{ key: 'm6', name: 'CeraVe Eye Repair Cream', purpose: 'Olheiras' },
+{ key: 'm7', name: 'Protetor Solar SPF 50+', purpose: '☀️ La Roche SPF 50 · Abib Airy · Abib Quick — nunca pule!' },
+];
+const BASE_NIGHT_A = [
+{ key: 'na1', name: 'Neutrogena Eye Makeup Remover', purpose: 'Demaquilar olhos' },
+{ key: 'na2', name: 'CeraVe Air Foam Cleanser', purpose: 'Limpeza' },
+{ key: 'na3', name: 'Thayers Facial Toner', purpose: 'Equilibrar pH' },
+{ key: 'na4', name: 'Vichy Vitamina C', purpose: 'Manchas + luminosidade' },
+{ key: 'na5', name: 'Celimax Pore Dark Spot', purpose: 'Poros + manchas' },
+{ key: 'na6', name: 'The Ordinary Factors + Beta Glucan', purpose: 'Hidratação + peptídeos' },
+{ key: 'na7', name: 'Celimax Retinal', purpose: 'Linhas de expressão + manchas', wait: '⏳ Aplique na pele completamente seca' },
+{ key: 'na8', name: 'CeraVe Eye Repair Cream', purpose: 'Olheiras' },
+{ key: 'na9', name: 'La Roche-Posay Lipikar', purpose: 'Hidratação final + barreira' },
+];
+const BASE_NIGHT_B = [
+{ key: 'nb1', name: 'Neutrogena Eye Makeup Remover', purpose: 'Demaquilar olhos' },
+{ key: 'nb2', name: 'CeraVe Air Foam Cleanser', purpose: 'Limpeza' },
+{ key: 'nb3', name: 'Thayers Facial Toner', purpose: 'Equilibrar pH' },
+{ key: 'nb4', name: 'COSRX BHA Blackhead Power Liquid', purpose: 'Poros pretos', wait: '⏳ Aguarde 20 minutos' },
+{ key: 'nb5', name: 'The Ordinary Niacinamide 10% + Zinc', purpose: 'Poros + oleosidade' },
+{ key: 'nb6', name: 'Differin Gel', purpose: 'Linhas de expressão (apenas testa)' },
+{ key: 'nb7', name: 'CeraVe Eye Repair Cream', purpose: 'Olheiras' },
+{ key: 'nb8', name: 'La Roche-Posay Cicaplast', purpose: 'Acalmar + reparar' },
+];
+const BASE_NIGHT_C = [
+{ key: 'nc1', name: 'Neutrogena Eye Makeup Remover', purpose: 'Demaquilar olhos' },
+{ key: 'nc2', name: 'CeraVe Air Foam Cleanser', purpose: 'Limpeza' },
+{ key: 'nc3', name: 'Thayers Facial Toner', purpose: 'Equilibrar pH' },
+{ key: 'nc4', name: 'CeraVe Eye Repair Cream', purpose: 'Olheiras' },
+{ key: 'nc5', name: 'La Roche-Posay Lipikar ou Cicaplast', purpose: 'Hidratação noturna' },
+];
+
+// Get active steps (filter out skipped)
+function getSteps(base) {
+return base.filter(s => !state.skippedSteps.includes(s.key));
+}
+let morningSteps = () => getSteps(BASE_MORNING);
+let nightASteps = () => getSteps(BASE_NIGHT_A);
+let nightBSteps = () => getSteps(BASE_NIGHT_B);
+let nightCSteps = () => getSteps(BASE_NIGHT_C);
+
+function saveState() {
+localStorage.setItem('skincare-v2', JSON.stringify(state));
 }
 
-const TOTAL=20;
-let phase="start",qNum=0,score=0,q=null,sel=null,fb=false,used=new Set(),streak=0,best=0,hist=[];
-const app=document.getElementById("app");
-
-function render(){
-  if(phase==="start") renderStart();
-  else if(phase==="quiz") renderQuiz();
-  else renderResult();
+// ---- TOAST ----
+function showToast(msg) {
+const t = document.getElementById('toast');
+t.textContent = msg;
+t.classList.add('show');
+setTimeout(() => t.classList.remove('show'), 2500);
 }
 
-function renderStart(){
-  app.style.cssText="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;";
-  app.innerHTML=`
-    <div style="text-align:center;max-width:400px;animation:fadeUp .5s ease-out">
-      <div style="width:76px;height:76px;border-radius:20px;margin:0 auto 20px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;font-size:34px">✏️</div>
-      <h1 style="font-size:34px;font-weight:800;letter-spacing:-.8px;margin-bottom:10px">Spell Check</h1>
-      <p style="color:#888;font-size:17px;line-height:1.65;margin-bottom:32px;font-weight:400">${TOTAL} questions from the police officer exam word list. Definitions, fill-in-the-blank, and straight spelling.</p>
-      <button class="btn-primary" style="width:auto;padding:16px 48px" onclick="startQuiz()">Begin</button>
-    </div>`;
+// ---- MODAL ----
+function showModal(title, sub, buttons) {
+document.getElementById('modal-title').textContent = title;
+document.getElementById('modal-sub').textContent = sub;
+const btnContainer = document.getElementById('modal-buttons');
+btnContainer.innerHTML = '';
+buttons.forEach(b => {
+const btn = document.createElement('button');
+btn.textContent = b.label;
+btn.style.cssText = `width:100%; padding:14px; border-radius:12px; border:none; font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:500; cursor:pointer; transition:opacity 0.2s; ${b.style || 'background:#FAF6F1; color:#3D2B1F;'}`;
+btn.onclick = () => { closeModal(); b.action(); };
+btnContainer.appendChild(btn);
+});
+const overlay = document.getElementById('modal-overlay');
+overlay.style.display = 'flex';
+}
+function closeModal() {
+document.getElementById('modal-overlay').style.display = 'none';
+}
+document.getElementById('modal-overlay').addEventListener('click', function(e) {
+if (e.target === this) closeModal();
+});
+
+// ---- RENDER ROUTINES ----
+function renderSteps(stepsArr, checkedObj, listId, countId, barId, numClass) {
+const list = document.getElementById(listId);
+if (!list) return;
+list.innerHTML = '';
+if (stepsArr.length === 0) {
+list.innerHTML = '<div style="padding:20px; text-align:center; color:#8A6F5E; font-style:italic; font-size:0.95rem;">Nenhum passo ativo</div>';
+document.getElementById(countId).textContent = '0 / 0';
+document.getElementById(barId).style.width = '0%';
+return;
+}
+stepsArr.forEach((step, i) => {
+const checked = checkedObj[step.key] || false;
+const div = document.createElement('div');
+div.className = 'step-item' + (checked ? ' done' : '');
+div.innerHTML = `
+<div class="step-num ${numClass}">${i + 1}</div>
+<div class="step-info">
+<div class="step-name">${step.name}</div>
+<div class="step-purpose">${step.purpose}</div>
+${step.wait ? `<div class="step-wait">${step.wait}</div>` : ''}
+</div>
+<button class="step-check ${checked ? 'checked' : ''}" onclick="toggleStep('${step.key}', '${listId}', '${countId}', '${barId}', '${numClass}')">
+<svg width="12" height="9" viewBox="0 0 12 9" fill="none">
+<path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button>
+`;
+list.appendChild(div);
+});
+updateProgress(checkedObj, stepsArr, countId, barId);
 }
 
-function startQuiz(){
-  phase="quiz";qNum=0;score=0;streak=0;best=0;hist=[];used=new Set();
-  q=genQ(used);used.add(q.word);sel=null;fb=false;
-  render();
+function toggleStep(key, listId, countId, barId, numClass) {
+const routineMap = {
+'morning-list': ['morningChecked', morningSteps()],
+'nightA-list': ['nightAChecked', nightASteps()],
+'nightB-list': ['nightBChecked', nightBSteps()],
+'nightC-list': ['nightCChecked', nightCSteps()],
+};
+const [stateKey, steps] = routineMap[listId];
+state[stateKey][key] = !state[stateKey][key];
+saveState();
+renderSteps(steps, state[stateKey], listId, countId, barId, numClass);
+if (state[stateKey][key]) showToast('✓ Passo concluído!');
 }
 
-function renderQuiz(){
-  app.style.cssText="";
-  const ql=q.type==="fillBlank"?"Fill in the blank":q.type==="definition"?"Which word matches this definition?":"Select the correct spelling";
-
-  let promptHTML="";
-  if(q.type==="fillBlank"){
-    const parts=q.sentence.split("___");
-    promptHTML=`<p style="font-size:19px;font-weight:400;line-height:1.75;color:#333">${parts.join('<span class="blank-line">&nbsp;</span>')}</p>`;
-  } else if(q.type==="definition"){
-    promptHTML=`<p style="font-size:20px;font-weight:400;line-height:1.6;color:#333;font-style:italic">"${q.def}"</p>`;
-  } else {
-    promptHTML=`<p style="font-size:16px;font-weight:400;line-height:1.6;color:#999">${q.def}</p>`;
-  }
-
-  let optsHTML=q.options.map((o,i)=>{
-    const ic=i===q.correctIndex, is_=i===sel;
-    let bg="#fff",bd="1px solid #eee",cl="#1a1a1a",tbg="#f5f5f5",tc="#999",anim_="",cls="ob";
-    if(fb){
-      cls+=" locked";
-      if(ic){bg="#f0fdf4";bd="2px solid #22c55e";cl="#166534";tbg="#22c55e";tc="#fff";anim_="animation:glow 1s ease;";}
-      else if(is_){bg="#fef2f2";bd="2px solid #ef4444";cl="#991b1b";tbg="#ef4444";tc="#fff";anim_="animation:shake .35s ease;";}
-      else{cl="#ccc";}
-    }
-    const tag=fb&&ic?"✓":fb&&is_?"✗":String.fromCharCode(65+i);
-    return `<button class="${cls}" onclick="pick(${i})" style="background:${bg};border:${bd};border-radius:16px;padding:18px 20px;display:flex;align-items:center;gap:16px;cursor:${fb?"default":"pointer"};animation:slideOpt .25s ease-out ${i*.05}s both;${anim_}">
-      <span style="width:34px;height:34px;border-radius:10px;flex-shrink:0;background:${tbg};color:${tc};display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600">${tag}</span>
-      <span class="mono" style="font-size:19px;font-weight:500;color:${cl};letter-spacing:.6px">${o}</span>
-    </button>`;
-  }).join("");
-
-  let feedbackHTML="";
-  if(fb){
-    let panels="";
-    if(q.type!=="standard"){
-      panels+=`<div class="card-sm"><span class="label-sm">Definition</span><p style="font-size:16px;color:#555;line-height:1.55">${q.def}</p></div>`;
-    }
-    if(q.type!=="fillBlank"){
-      panels+=`<div class="card-sm"><span class="label-sm">Used in a sentence</span><p style="font-size:16px;color:#555;line-height:1.55">${q.sentence.replace("___",q.word)}</p></div>`;
-    }
-    const btnLabel=qNum+1>=TOTAL?"See Results":"Continue →";
-    feedbackHTML=`<div style="margin-top:14px;animation:scaleIn .2s ease-out">${panels}<button class="btn-primary" onclick="nextQ()" style="margin-top:2px">${btnLabel}</button></div>`;
-  }
-
-  app.innerHTML=`
-    <div style="animation:fadeUp .3s ease-out">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-        <span class="mono" style="font-size:14px;font-weight:500;color:#aaa">${qNum+1} / ${TOTAL}</span>
-        <div style="display:flex;align-items:center;gap:12px">
-          ${streak>=3?`<span style="font-size:14px;font-weight:600;color:#f59e0b">🔥 ${streak}</span>`:""}
-          <span class="mono" style="font-size:14px;font-weight:600;background:#1a1a1a;color:#fff;border-radius:8px;padding:4px 12px">${score}</span>
-        </div>
-      </div>
-      <div style="height:3px;background:#e5e5e5;border-radius:2px;margin-bottom:28px;overflow:hidden">
-        <div style="width:${((qNum+1)/TOTAL)*100}%;height:100%;background:#1a1a1a;border-radius:2px;transition:width .4s ease"></div>
-      </div>
-      <div class="card">
-        <span class="label">${ql}</span>
-        ${promptHTML}
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px">${optsHTML}</div>
-      ${feedbackHTML}
-    </div>`;
+function updateProgress(checkedObj, steps, countId, barId) {
+const done = steps.filter(s => checkedObj[s.key]).length;
+const total = steps.length;
+document.getElementById(countId).textContent = `${done} / ${total}`;
+document.getElementById(barId).style.width = total ? `${(done/total)*100}%` : '0%';
 }
 
-function pick(i){
-  if(fb)return;
-  sel=i;fb=true;
-  const ok=i===q.correctIndex;
-  if(ok){score++;streak++;if(streak>best)best=streak;}else{streak=0;}
-  hist.push({word:q.word,correct:ok});
-  render();
+function resetRoutine(which) {
+const map = {
+morning: ['morningChecked', morningSteps(), 'morning-list', 'morning-count', 'morning-bar', 'morning-num'],
+nightA: ['nightAChecked', nightASteps(), 'nightA-list', 'nightA-count', 'nightA-bar', 'night-num'],
+nightB: ['nightBChecked', nightBSteps(), 'nightB-list', 'nightB-count', 'nightB-bar', 'night-num'],
+nightC: ['nightCChecked', nightCSteps(), 'nightC-list', 'nightC-count', 'nightC-bar', 'night-num'],
+};
+const [sk, steps, lid, cid, bid, nc] = map[which];
+state[sk] = {};
+saveState();
+renderSteps(steps, state[sk], lid, cid, bid, nc);
+showToast('↺ Rotina reiniciada');
 }
 
-function nextQ(){
-  if(qNum+1>=TOTAL){phase="result";render();return;}
-  qNum++;q=genQ(used);used.add(q.word);sel=null;fb=false;
-  render();
+function renderAllRoutines() {
+renderSteps(morningSteps(), state.morningChecked, 'morning-list', 'morning-count', 'morning-bar', 'morning-num');
+renderSteps(nightASteps(), state.nightAChecked, 'nightA-list', 'nightA-count', 'nightA-bar', 'night-num');
+renderSteps(nightBSteps(), state.nightBChecked, 'nightB-list', 'nightB-count', 'nightB-bar', 'night-num');
+renderSteps(nightCSteps(), state.nightCChecked, 'nightC-list', 'nightC-count', 'nightC-bar', 'night-num');
 }
 
-function renderResult(){
-  app.style.cssText="";
-  const pct=Math.round((score/TOTAL)*100);
-  let grade;
-  if(pct>=95)grade={l:"Outstanding",c:"#22c55e",e:"🏆"};
-  else if(pct>=85)grade={l:"Excellent",c:"#3b82f6",e:"⭐"};
-  else if(pct>=70)grade={l:"Good",c:"#eab308",e:"👍"};
-  else if(pct>=50)grade={l:"Needs Work",c:"#f97316",e:"📝"};
-  else grade={l:"Keep Practicing",c:"#ef4444",e:"💪"};
+// ---- SYNC ROUTINE WITH STOCK ----
+// Maps product name fragments to step keys they affect
+const PRODUCT_STEP_MAP = [
+{ fragment: 'Neutrogena', keys: ['na1','nb1','nc1'] },
+{ fragment: 'Air Foam', keys: ['m1','na2','nb2','nc2'] },
+{ fragment: 'Thayers', keys: ['m2','na3','nb3','nc3'] },
+{ fragment: 'Vitamina C', keys: ['m3','na4'] },
+{ fragment: 'Pore Dark Spot', keys: ['na5'] },
+{ fragment: 'Beta Glucan', keys: ['m5','na6'] },
+{ fragment: 'Retinal', keys: ['na7'] },
+{ fragment: 'Eye Repair', keys: ['m6','na8','nb7','nc4'] },
+{ fragment: 'Lipikar', keys: ['na9','nc5'] },
+{ fragment: 'BHA', keys: ['nb4'] },
+{ fragment: 'Niacinamide', keys: ['m4','nb5'] },
+{ fragment: 'Differin', keys: ['nb6'] },
+{ fragment: 'Cicaplast', keys: ['nb8'] },
+{ fragment: 'Ultra-Light', keys: ['m5'] },
+{ fragment: 'SPF 50', keys: ['m7'] },
+{ fragment: 'Airy Sunstick', keys: ['m7'] },
+{ fragment: 'Quick Sunstick', keys: ['m7'] },
+];
 
-  const tags=hist.map(h=>`<span class="mono" style="font-size:14px;font-weight:500;padding:6px 12px;border-radius:8px;background:${h.correct?"#f0fdf4":"#fef2f2"};color:${h.correct?"#166534":"#991b1b"};border:1px solid ${h.correct?"#bbf7d0":"#fecaca"}">${h.word}</span>`).join("");
+function syncRoutineWithStock() {
+// Find all unavailable products (empty or deleted)
+const unavailableNames = state.products
+.filter(p => p.status === 'empty' || p.status === 'gone')
+.map(p => p.name.toLowerCase());
 
-  app.innerHTML=`
-    <div style="padding-top:24px;animation:fadeUp .4s ease-out">
-      <div style="text-align:center;margin-bottom:32px">
-        <div style="font-size:52px;margin-bottom:8px;animation:scaleIn .35s ease-out">${grade.e}</div>
-        <h2 style="font-size:28px;font-weight:800;color:${grade.c};margin-bottom:4px">${grade.l}</h2>
-        <p class="mono" style="font-size:40px;font-weight:600;color:#1a1a1a;margin:10px 0 4px">${score}/${TOTAL}</p>
-        <p style="color:#aaa;font-size:16px">${pct}% · Best streak: ${best}</p>
-      </div>
-      <div style="background:#fff;border-radius:20px;padding:20px;margin-bottom:20px;border:1px solid #eee">
-        <span class="mono" style="font-size:10px;font-weight:600;color:#bbb;text-transform:uppercase;letter-spacing:1.5px;display:block;margin-bottom:12px">Word Review</span>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">${tags}</div>
-      </div>
-      <button class="btn-primary" onclick="startQuiz()">Try Again</button>
-    </div>`;
+// Group mappings by step key — skip a step only if ALL products for that step are unavailable
+const stepProducts = {}; // key -> { total, unavailable }
+PRODUCT_STEP_MAP.forEach(mapping => {
+const frag = mapping.fragment.toLowerCase();
+// Check if ANY product in stock matches this fragment
+const allForFrag = state.products.filter(p => p.name.toLowerCase().includes(frag));
+const unavailForFrag = allForFrag.filter(p => p.status === 'empty' || p.status === 'gone');
+mapping.keys.forEach(k => {
+if (!stepProducts[k]) stepProducts[k] = { total: 0, unavailable: 0 };
+stepProducts[k].total += allForFrag.length;
+stepProducts[k].unavailable += unavailForFrag.length;
+});
+});
+
+const newSkipped = [];
+Object.entries(stepProducts).forEach(([key, counts]) => {
+// Skip step only if all mapped products are unavailable
+if (counts.total > 0 && counts.unavailable >= counts.total) newSkipped.push(key);
+});
+
+state.skippedSteps = [...new Set(newSkipped)];
+saveState();
+renderAllRoutines();
+
+const count = state.skippedSteps.length;
+showToast(count > 0 ? `🔄 Rotina atualizada — ${count} passo(s) ajustado(s)` : '✅ Rotina sincronizada com estoque!');
 }
 
-render();
+// ---- PRODUCTS ----
+function statusLabel(status) {
+if (status === 'empty') return '<span style="font-size:0.75rem;color:#C4806A;font-weight:500"> · ACABOU</span>';
+if (status === 'gone') return '<span style="font-size:0.75rem;color:#999;font-weight:500"> · NÃO VOU REPOR</span>';
+return '';
+}
+function statusStyle(status) {
+if (status === 'empty') return ' empty-product';
+if (status === 'gone') return ' empty-product';
+return '';
+}
+
+function renderProducts() {
+const list = document.getElementById('products-list');
+list.innerHTML = '';
+if (state.products.length === 0) {
+list.innerHTML = '<div class="empty-state">Nenhum produto cadastrado ainda.</div>';
+return;
+}
+
+// Show sync button if any products are unavailable
+const hasUnavailable = state.products.some(p => p.status !== 'ok');
+if (hasUnavailable) {
+const syncDiv = document.createElement('div');
+syncDiv.innerHTML = `
+<button onclick="syncRoutineWithStock()" style="width:100%;padding:14px;background:linear-gradient(135deg,#3D2B1F,#6B3D2E);color:#FAF6F1;border:none;border-radius:14px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;cursor:pointer;margin-bottom:16px;letter-spacing:0.04em;">
+🔄 Atualizar rotina com meu estoque
+</button>
+`;
+list.appendChild(syncDiv);
+}
+
+state.products.forEach(p => {
+const div = document.createElement('div');
+div.className = 'product-item' + statusStyle(p.status);
+const whenLabel = p.when === 'morning' ? '<span class="tag tag-morning">Manhã</span>' :
+p.when === 'night' ? '<span class="tag tag-night">Noite</span>' :
+'<span class="tag tag-both">Manhã + Noite</span>';
+
+const emptyIcon = p.status === 'ok' ? '🪫' : p.status === 'empty' ? '✅' : '✅';
+const emptyTitle = p.status === 'ok' ? 'Marcar como acabou' : 'Marcar como disponível';
+
+div.innerHTML = `
+<div class="product-emoji">${p.emoji}</div>
+<div class="product-info">
+<div class="product-name">${p.name}${statusLabel(p.status)}</div>
+<div class="product-use">${p.use}</div>
+<div class="product-tags">${whenLabel}</div>
+</div>
+<div class="product-actions">
+<button class="action-btn btn-empty" onclick="changeStatus(${p.id})" title="${emptyTitle}" style="font-size:1.1rem;">
+${p.status === 'ok' ? '🪫' : '✅'}
+</button>
+<button class="action-btn btn-delete" onclick="askDelete(${p.id})" title="Excluir" style="font-size:1.1rem;">🗑️</button>
+</div>
+`;
+list.appendChild(div);
+});
+}
+
+function changeStatus(id) {
+const p = state.products.find(x => x.id === id);
+if (!p) return;
+
+if (p.status === 'ok') {
+// Ask: acabou or não vai repor?
+showModal(
+'O que aconteceu com este produto?',
+p.name,
+[
+{
+label: '🪫 Acabou — vou comprar de novo',
+style: 'background:#FFF3E8; color:#C4806A;',
+action: () => { p.status = 'empty'; saveState(); renderProducts(); showToast('🪫 Marcado como acabou'); }
+},
+{
+label: '🚫 Não vou repor este produto',
+style: 'background:#F5F0FA; color:#7A5FA0;',
+action: () => { p.status = 'gone'; saveState(); renderProducts(); showToast('🚫 Produto marcado como não reposto'); }
+},
+{
+label: 'Cancelar',
+style: 'background:#FAF6F1; color:#8A6F5E;',
+action: () => {}
+}
+]
+);
+} else {
+// Restore
+p.status = 'ok';
+// Remove from skipped
+const allKeys = PRODUCT_STEP_MAP.filter(m => p.name.toLowerCase().includes(m.fragment.toLowerCase())).flatMap(m => m.keys);
+state.skippedSteps = state.skippedSteps.filter(k => !allKeys.includes(k));
+saveState();
+renderProducts();
+renderAllRoutines();
+showToast('✅ Produto disponível novamente!');
+}
+}
+
+function askDelete(id) {
+const p = state.products.find(x => x.id === id);
+if (!p) return;
+showModal(
+'Excluir produto?',
+p.name + ' será removido permanentemente da lista.',
+[
+{
+label: '🗑️ Sim, excluir',
+style: 'background:#FDDBD6; color:#8B2A1A;',
+action: () => {
+state.products = state.products.filter(x => x.id !== id);
+saveState();
+renderProducts();
+showToast('🗑️ Produto excluído');
+}
+},
+{
+label: 'Cancelar',
+style: 'background:#FAF6F1; color:#8A6F5E;',
+action: () => {}
+}
+]
+);
+}
+
+function addProduct() {
+const name = document.getElementById('new-product-name').value.trim();
+const use = document.getElementById('new-product-use').value.trim();
+const when = document.getElementById('new-product-when').value;
+const emoji= document.getElementById('new-product-emoji').value;
+if (!name) { showToast('⚠️ Digite o nome do produto'); return; }
+state.products.push({ id: Date.now(), name, use: use || '', when, emoji, status: 'ok' });
+saveState();
+renderProducts();
+document.getElementById('new-product-name').value = '';
+document.getElementById('new-product-use').value = '';
+showToast('✨ Produto adicionado!');
+}
+
+// ---- TABS & DAY ----
+function switchTab(tab) {
+document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+document.getElementById('tab-' + tab).classList.add('active');
+document.querySelector('.tab.' + tab).classList.add('active');
+}
+
+let currentDay = 'A';
+function selectDay(day) {
+currentDay = day;
+document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+document.getElementById('day-' + day).classList.add('active');
+['A','B','C','cal'].forEach(d => {
+const el = document.getElementById('night-' + d + '-content');
+if (el) el.style.display = d === day ? 'block' : 'none';
+});
+}
+
+// ---- INIT ----
+renderAllRoutines();
+renderProducts();
 </script>
+
 </body>
 </html>
